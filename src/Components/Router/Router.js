@@ -3,7 +3,8 @@ import Home from "../Pages/Home/Home";
 import Order from "../Layout/Order";
 import OrderReq from "../Pages/Order/OrderReq";
 import Error from "../Pages/Error/Error";
-// import Login from "../Pages/Login/Login";
+import Login from "../Pages/Login/Login";
+import Signup from "../Pages/Signup/Signup";
 
 const { createHashRouter } = require("react-router-dom");
 
@@ -17,10 +18,14 @@ const Router = createHashRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/login",
-      //   element: <Login />,
-      // },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
     ],
   },
   {
