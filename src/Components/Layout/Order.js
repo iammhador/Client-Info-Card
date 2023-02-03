@@ -4,7 +4,7 @@ import OrderNav from "../Shared/OrderNav";
 
 const Order = () => {
   return (
-    <div>
+    <div className="">
       <OrderNav />
       <Outlet />
     </div>
