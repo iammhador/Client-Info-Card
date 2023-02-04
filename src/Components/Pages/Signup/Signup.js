@@ -1,16 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Signup = () => {
+  const [error, setError] = useState("");
+  const { singUpWithEmailPassword } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const username = form.username.value;
+    const password = form.password.value;
+    const newUser = { email, username };
+
+    fetch("http://localhost:5000/registration", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message) {
+          setError(data.message);
+        }
+        singUpWithEmailPassword(email, password).then((result) => {
+          console.log(result);
+          navigate("/");
+        });
+      });
+  };
   return (
     <div className="grid grid-cols-2 justify-center w-screen h-screen">
       <div className="left bg-primary flex justify-center flex-col items-center h-screen"></div>
       <div className="right flex justify-center flex-col items-center h-screen">
-        <form>
+        <form onSubmit={handleSignup}>
           <h1 className="font-bold text-primary text-2xl my-7 text-center">
             Register your Account!
           </h1>
-          <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+          <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -34,6 +65,9 @@ const Signup = () => {
               placeholder="Username"
             ></input>
           </div>
+          <label className="label">
+            <span className="label-text-alt text-error">{error}</span>
+          </label>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
             <svg
               stroke="currentColor"
