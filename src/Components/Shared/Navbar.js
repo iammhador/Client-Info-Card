@@ -5,7 +5,7 @@ import "./navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="custom-navbar w-full md:w-full lg:w-1/3 grid grid-cols-1 fixed bottom-0  lg:bottom-16 lg:left-1/3 bg-transparent ">
+    <nav className="custom-navbar w-full md:w-full lg:w-1/3  grid grid-cols-1 fixed bottom-0  lg:bottom-9 lg:left-1/3 bg-transparent ">
       <div class="w-full max-w-md mx-auto">
         <div class="px-7 bg-white shadow-2xl rounded-2xl mb-5">
           <div className="flex justify-around gap-2 px-3 py-5 lg:rounded-md">
