@@ -26,11 +26,17 @@ const Signup = () => {
       .then((data) => {
         if (data.message) {
           setError(data.message);
+        } else {
+          singUpWithEmailPassword(email, password).then((result) => {
+            navigate("/");
+          });
         }
-        singUpWithEmailPassword(email, password).then((result) => {
-          console.log(result);
-          navigate("/");
-        });
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(
+          "There was an error while registering, Please try again later."
+        );
       });
   };
   return (
