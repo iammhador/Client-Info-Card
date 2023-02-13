@@ -1,13 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 // import { BsGoogle } from "react-icons/bs";
 // import { BsFacebook } from "react-icons/bs";
 const Login = () => {
+  const { login } = useContext(AuthContext);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    login(email, password).then((data) => {
+      console.log(data);
+      Navigate("/");
+    });
+  };
   return (
     <div className="grid grid-cols-2 justify-center w-screen h-screen">
       <div className="left bg-primary flex justify-center flex-col items-center h-screen"></div>
       <div className="right flex justify-center flex-col items-center h-screen">
-        <form>
+        <form onSubmit={handleLogin}>
           <h1 className="font-bold text-primary text-2xl my-7 text-center">
             Login to your account!
           </h1>

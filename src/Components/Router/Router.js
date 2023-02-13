@@ -7,6 +7,8 @@ import UserInfo from "../Pages/Profile/UserInfo";
 import Profile from "../Layout/Profile";
 import UserDetails from "../Pages/Profile/UserDetails";
 import { async } from "@firebase/util";
+import EditDetails from "../Pages/Profile/EditDetails";
+import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 
 const { createHashRouter } = require("react-router-dom");
 
@@ -28,6 +30,10 @@ const Router = createHashRouter([
         path: "/signup",
         element: <Signup />,
       },
+      {
+        path: "/update-profile",
+        element: <UpdateProfile />,
+      },
     ],
   },
   {
@@ -40,15 +46,18 @@ const Router = createHashRouter([
         element: <UserInfo />,
       },
       {
-        path: "/profile/:username",
-        element: <UserDetails />,
-        loader: async ({ params }) => {
-          return fetch(
-            `http://localhost:5000/users?username=${params.username}`
-          );
-        },
+        path: "/profile/editdetails",
+        element: <EditDetails />,
       },
     ],
+  },
+  {
+    path: "/information/:username",
+    element: <UserDetails />,
+    errorElement: <Error />,
+    loader: async ({ params }) => {
+      return fetch(`http://localhost:5000/users?username=${params.username}`);
+    },
   },
 ]);
 
