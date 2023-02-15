@@ -19,8 +19,12 @@ import { SiTwitter } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { FaRedditAlien } from "react-icons/fa";
+// import AuthProvider from "../../../AuthProvider/AuthProvider";
 
 const UserDetails = () => {
+  // const { user } = useContext(AuthProvider);
+  // console.log(user);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -71,7 +75,10 @@ const UserDetails = () => {
           </div>
           <div className="my-8">
             <div className="my-4">
-              <a href="mailto:iammhador@gmail.com" class="flex my-auto mb-4">
+              <a
+                href="mailto:iammhador@gmail.com"
+                className="flex my-auto mb-4"
+              >
                 <MdEmail className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary font-medium">
@@ -81,7 +88,7 @@ const UserDetails = () => {
                 </div>
               </a>
 
-              <a href="tel:+8801630995585" class="flex my-auto mb-4">
+              <a href="tel:+8801630995585" className="flex my-auto mb-4">
                 <MdCall className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary  font-medium">
@@ -94,7 +101,7 @@ const UserDetails = () => {
               <a
                 href="www.iammhador.com"
                 target="a_blank"
-                class="flex my-auto mb-4"
+                className="flex my-auto mb-4"
               >
                 <AiOutlineMail className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
@@ -105,7 +112,7 @@ const UserDetails = () => {
                 </div>
               </a>
 
-              <a href="/" target="a_blank" class="flex my-auto mb-4">
+              <a href="/" target="a_blank" className="flex my-auto mb-4">
                 <SiGooglemaps className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary font-medium">
@@ -141,7 +148,7 @@ const UserDetails = () => {
                 <a
                   href="https://www.facebook.com/iammhador"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <FaFacebookF className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
@@ -150,7 +157,7 @@ const UserDetails = () => {
                 <a
                   href="https://www.instagram.com/iammhador/"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <AiFillInstagram className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
@@ -159,7 +166,7 @@ const UserDetails = () => {
                 <a
                   href="https://wa.me/+8801630995585"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <IoLogoWhatsapp className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
@@ -168,7 +175,7 @@ const UserDetails = () => {
                 <a
                   href="https://www.linkedin.com/in/iammhador/"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <ImLinkedin className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
@@ -177,7 +184,7 @@ const UserDetails = () => {
                 <a
                   href="https://twitter.com/iammhador"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <SiTwitter className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
@@ -186,7 +193,7 @@ const UserDetails = () => {
                 <a
                   href="https://www.youtube.com/channel/UClYU4G0-4hRnCy7AlYmod_w"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <FaYoutube className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
@@ -195,17 +202,16 @@ const UserDetails = () => {
                 <a
                   href="https://github.com/iammhador"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <BsGithub className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
               </div>
               <div>
-                {" "}
                 <a
                   href="https://www.reddit.com/user/Humble_Replacement99"
                   target="a_blank"
-                  class="flex my-auto mb-4"
+                  className="flex my-auto mb-4"
                 >
                   <FaRedditAlien className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>

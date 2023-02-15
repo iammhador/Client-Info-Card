@@ -29,37 +29,22 @@ const UpdateProfile = () => {
     const tikTok = form.tikTok.value;
     const gitHub = form.gitHub.value;
 
-    const updateInformation =
-      // (fullName,
-      // email,
-      // aboutYourself,
-      // designation,
-      // contactNumber,
-      // websiteAddress,
-      // facebook,
-      // instagram,
-      // linkedIn,
-      // twitter,
-      // youTube,
-      // whatsApp,
-      // tikTok,
-      // gitHub);
-      {
-        fullName: fullName,
-        email: email,
-        aboutYourself: aboutYourself,
-        designation: designation,
-        contactNumber: contactNumber,
-        websiteAddress: websiteAddress,
-        facebook: facebook,
-        instagram: instagram,
-        linkedIn: linkedIn,
-        twitter: twitter,
-        youTube: youTube,
-        whatsApp: whatsApp,
-        tikTok: tikTok,
-        gitHub: gitHub,
-      };
+    const updateInformation = {
+      fullName: fullName,
+      email: email,
+      aboutYourself: aboutYourself,
+      designation: designation,
+      contactNumber: contactNumber,
+      websiteAddress: websiteAddress,
+      facebook: facebook,
+      instagram: instagram,
+      linkedIn: linkedIn,
+      twitter: twitter,
+      youTube: youTube,
+      whatsApp: whatsApp,
+      tikTok: tikTok,
+      gitHub: gitHub,
+    };
 
     fetch("http://localhost:5000/updateInformation", {
       method: "POST",
@@ -84,12 +69,12 @@ const UpdateProfile = () => {
           <form onSubmit={handleUpdateProfile}>
             <div className="mb-5">
               <div>
-                <h4 className="text-lg font-semibold mb-3 text-black">
+                <h4 className="text-lg font-semibold mb-3 text-black ml-2">
                   Personal Information :
                 </h4>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -111,7 +96,7 @@ const UpdateProfile = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -132,7 +117,7 @@ const UpdateProfile = () => {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -156,12 +141,12 @@ const UpdateProfile = () => {
 
             <div className="mb-5">
               <div>
-                <h4 className="text-lg font-semibold mb-3 text-black">
+                <h4 className="text-lg font-semibold mb-3 text-black ml-2">
                   Social Information :
                 </h4>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -183,7 +168,7 @@ const UpdateProfile = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -204,7 +189,7 @@ const UpdateProfile = () => {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -226,7 +211,7 @@ const UpdateProfile = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"

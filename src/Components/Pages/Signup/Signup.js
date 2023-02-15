@@ -40,7 +40,7 @@ const Signup = () => {
       });
   };
   return (
-    <div className="grid grid-cols-2 justify-center w-screen h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-center w-screen h-screen">
       <div className="left bg-primary flex justify-center flex-col items-center h-screen"></div>
       <div className="right flex justify-center flex-col items-center h-screen">
         <form onSubmit={handleSignup}>
