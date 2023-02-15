@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import img from "../../Assets/Website Related Items/mockup 2.png";
 // import { BsGoogle } from "react-icons/bs";
 // import { BsFacebook } from "react-icons/bs";
 const Login = () => {
@@ -16,7 +17,9 @@ const Login = () => {
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center w-screen h-screen">
-      <div className="left bg-primary flex justify-center flex-col items-center h-screen"></div>
+      <div className="left bg-primary flex justify-center flex-col items-center h-screen">
+        <img className="" src={img} alt="" />
+      </div>
       <div className="right flex justify-center flex-col items-center h-screen">
         <form onSubmit={handleLogin}>
           <h1 className="font-bold text-primary text-2xl my-7 text-center">
