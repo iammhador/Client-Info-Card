@@ -26,8 +26,6 @@ const UserDetails = () => {
   // const { user } = useContext(AuthProvider);
   // console.log(user);
 
-  const userdata = useLoaderData();
-  console.log(userdata[0]);
   const {
     fullName,
     email,
@@ -43,7 +41,7 @@ const UserDetails = () => {
     whatsApp,
     tikTok,
     gitHub,
-  } = userdata[0];
+  } = useLoaderData()[0];
 
   const responsive = {
     superLargeDesktop: {
@@ -79,7 +77,7 @@ const UserDetails = () => {
 
         <div className="mt-14 w-5/6 mx-auto">
           <h3 className="text-2xl text-neutral font-bold ">{fullName}</h3>
-          <h5 className="text-lg text-secondary font-medium">Web Developer</h5>
+          <h5 className="text-lg text-secondary font-medium">{designation}</h5>
           <div className="my-8">
             <div className="grid grid-cols-2">
               <button className="bg-primary text-base font-medium text-accent p-3 mr-2 rounded-xl uppercase">
