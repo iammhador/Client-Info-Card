@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import img from "../../Assets/Website Related Items/mockup 2.png";
 
 const Signup = () => {
   const [error, setError] = useState("");
@@ -47,7 +48,9 @@ const Signup = () => {
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center w-screen h-screen">
-      <div className="left bg-primary flex justify-center flex-col items-center h-screen"></div>
+      <div className="left bg-primary flex justify-center flex-col items-center h-screen">
+        <img className="" src={img} alt="" />
+      </div>
       <div className="right flex justify-center flex-col items-center h-screen">
         <form onSubmit={handleSignup}>
           <h1 className="font-bold text-primary text-2xl my-7 text-center">
