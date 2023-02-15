@@ -19,11 +19,31 @@ import { SiTwitter } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { FaRedditAlien } from "react-icons/fa";
+import { useLoaderData } from "react-router";
 // import AuthProvider from "../../../AuthProvider/AuthProvider";
 
 const UserDetails = () => {
   // const { user } = useContext(AuthProvider);
   // console.log(user);
+
+  const userdata = useLoaderData();
+  console.log(userdata[0]);
+  const {
+    fullName,
+    email,
+    aboutYourself,
+    designation,
+    contactNumber,
+    websiteAddress,
+    facebook,
+    instagram,
+    linkedIn,
+    twitter,
+    youTube,
+    whatsApp,
+    tikTok,
+    gitHub,
+  } = userdata[0];
 
   const responsive = {
     superLargeDesktop: {
@@ -58,17 +78,15 @@ const UserDetails = () => {
         </div>
 
         <div className="mt-14 w-5/6 mx-auto">
-          <h3 className="text-2xl text-neutral font-bold ">
-            Mehedy Hasan Ador
-          </h3>
+          <h3 className="text-2xl text-neutral font-bold ">{fullName}</h3>
           <h5 className="text-lg text-secondary font-medium">Web Developer</h5>
           <div className="my-8">
             <div className="grid grid-cols-2">
-              <button className="bg-primary text-base font-medium text-accent py-3 px-5 mr-1 rounded-xl uppercase">
+              <button className="bg-primary text-base font-medium text-accent p-3 mr-2 rounded-xl uppercase">
                 Save Contact
               </button>
 
-              <button className="bg-primary text-base font-medium text-accent py-3 px-5 ml-1 rounded-xl uppercase">
+              <button className="bg-primary text-base font-medium text-accent p-3 rounded-xl uppercase">
                 Connect
               </button>
             </div>
@@ -82,7 +100,7 @@ const UserDetails = () => {
                 <MdEmail className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary font-medium">
-                    iammhador@gmail.com
+                    {email}
                   </h4>
                   <p className="text-secondary  text-xs">Email</p>
                 </div>
@@ -92,7 +110,7 @@ const UserDetails = () => {
                 <MdCall className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary  font-medium">
-                    +8801630995585
+                    {contactNumber}
                   </h4>
                   <p className="text-secondary text-xs">Cell Phone</p>
                 </div>
@@ -106,7 +124,7 @@ const UserDetails = () => {
                 <AiOutlineMail className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary font-medium">
-                    www.iammhador.com
+                    {websiteAddress}
                   </h4>
                   <p className="text-secondary text-xs">Website</p>
                 </div>
@@ -130,9 +148,7 @@ const UserDetails = () => {
 
             <div>
               <p className="text-secondary mt-2 text-justify">
-                I’m a web developer specializing in react js. The main focus is
-                front-end, but at the same time, I try to learn new technology
-                also. Currently, I’m focused on learning mern stack development.
+                {aboutYourself}
               </p>
             </div>
           </div>
@@ -146,7 +162,7 @@ const UserDetails = () => {
             >
               <div>
                 <a
-                  href="https://www.facebook.com/iammhador"
+                  href={facebook}
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
@@ -155,7 +171,7 @@ const UserDetails = () => {
               </div>
               <div>
                 <a
-                  href="https://www.instagram.com/iammhador/"
+                  href={instagram}
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
@@ -164,7 +180,7 @@ const UserDetails = () => {
               </div>
               <div>
                 <a
-                  href="https://wa.me/+8801630995585"
+                  href={whatsApp}
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
@@ -173,7 +189,7 @@ const UserDetails = () => {
               </div>
               <div>
                 <a
-                  href="https://www.linkedin.com/in/iammhador/"
+                  href={linkedIn}
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
@@ -182,7 +198,7 @@ const UserDetails = () => {
               </div>
               <div>
                 <a
-                  href="https://twitter.com/iammhador"
+                  href={twitter}
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
@@ -191,7 +207,7 @@ const UserDetails = () => {
               </div>
               <div>
                 <a
-                  href="https://www.youtube.com/channel/UClYU4G0-4hRnCy7AlYmod_w"
+                  href={youTube}
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
@@ -199,11 +215,7 @@ const UserDetails = () => {
                 </a>
               </div>
               <div>
-                <a
-                  href="https://github.com/iammhador"
-                  target="a_blank"
-                  className="flex my-auto mb-4"
-                >
+                <a href={gitHub} target="a_blank" className="flex my-auto mb-4">
                   <BsGithub className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
               </div>

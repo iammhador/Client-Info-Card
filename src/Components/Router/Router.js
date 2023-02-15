@@ -6,7 +6,6 @@ import Signup from "../Pages/Signup/Signup";
 import UserInfo from "../Pages/Profile/UserInfo";
 import Profile from "../Layout/Profile";
 import UserDetails from "../Pages/Profile/UserDetails";
-import { async } from "@firebase/util";
 import EditDetails from "../Pages/Profile/EditDetails";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 

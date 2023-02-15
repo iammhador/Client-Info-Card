@@ -4,7 +4,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 const Signup = () => {
   const [error, setError] = useState("");
-  const { singUpWithEmailPassword } = useContext(AuthContext);
+  const { singUpWithEmailPassword, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSignup = (e) => {
@@ -28,7 +28,13 @@ const Signup = () => {
           setError(data.message);
         } else {
           singUpWithEmailPassword(email, password).then((result) => {
-            navigate("/");
+            updateUser({ displayName: username })
+              .then(() => {
+                navigate("/");
+              })
+              .catch((err) => {
+                console.log(err);
+              });
           });
         }
       })

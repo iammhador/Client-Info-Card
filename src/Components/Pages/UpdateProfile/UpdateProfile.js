@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
 const UpdateProfile = () => {
-  const { data } = useContext(AuthContext);
-  console.log(data);
+  const { user } = useContext(AuthContext);
   // fetch("http://localhost:5000/users")
   //   .then((res) => res.json())
   //   .then((data) => console.log(data));
@@ -44,6 +43,8 @@ const UpdateProfile = () => {
       whatsApp: whatsApp,
       tikTok: tikTok,
       gitHub: gitHub,
+      // used for filtering
+      username: user.displayName,
     };
 
     fetch("http://localhost:5000/updateInformation", {
