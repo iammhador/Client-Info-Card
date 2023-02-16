@@ -1,6 +1,8 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import VCard from "vcard-creator";
+import download from "downloadjs";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
 import ProfileImage from "../../Assets/iammhador.jpg";
 
@@ -14,11 +16,11 @@ import { SiGooglemaps } from "react-icons/si";
 import { FaFacebookF } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { ImLinkedin } from "react-icons/im";
+import { RiLinkedinFill } from "react-icons/ri";
 import { SiTwitter } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
-import { FaRedditAlien } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
 import { useLoaderData } from "react-router";
 // import AuthProvider from "../../../AuthProvider/AuthProvider";
 
@@ -26,9 +28,11 @@ const UserDetails = () => {
   // const { user } = useContext(AuthProvider);
   // console.log(user);
 
+  //# User Information:
   const {
     fullName,
     email,
+    location,
     aboutYourself,
     designation,
     contactNumber,
@@ -43,6 +47,7 @@ const UserDetails = () => {
     gitHub,
   } = useLoaderData()[0];
 
+  //# Social Slider:
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -62,6 +67,23 @@ const UserDetails = () => {
       items: 4,
     },
   };
+
+  const visitingCard = () => {
+    //create a new vCard
+
+    const myVCard = new VCard();
+
+    myVCard
+      .addName(`${fullName}`)
+      .addJobtitle(`${designation}`)
+      .addEmail(`${email}`)
+      .addPhoneNumber(`${contactNumber}`)
+      .addAddress(null, null, "", "", "", "", `${location}`)
+      .addURL(`${websiteAddress}`);
+    // .addPhoto(contactData.image.data, contactData.image.mime);
+    download(myVCard.toString(), `${fullName}.vcf`);
+  };
+
   return (
     <div>
       <div>
@@ -80,7 +102,10 @@ const UserDetails = () => {
           <h5 className="text-lg text-secondary font-medium">{designation}</h5>
           <div className="my-8">
             <div className="grid grid-cols-2">
-              <button className="bg-primary text-base font-medium text-accent p-3 mr-2 rounded-xl uppercase">
+              <button
+                onClick={visitingCard}
+                className="bg-primary text-base font-medium text-accent p-3 mr-2 rounded-xl uppercase"
+              >
                 Save Contact
               </button>
 
@@ -128,11 +153,15 @@ const UserDetails = () => {
                 </div>
               </a>
 
-              <a href="/" target="a_blank" className="flex my-auto mb-4">
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${location}`}
+                target="a_blank"
+                className="flex my-auto mb-4"
+              >
                 <SiGooglemaps className="text-5xl rounded-full bg-black text-white p-3" />
                 <div className="ml-3">
                   <h4 className="text-base text-secondary font-medium">
-                    Dhaka, Bangladesh
+                    {location}
                   </h4>
                   <p className="text-secondary text-xs">Address</p>
                 </div>
@@ -191,7 +220,7 @@ const UserDetails = () => {
                   target="a_blank"
                   className="flex my-auto mb-4"
                 >
-                  <ImLinkedin className="text-5xl rounded-full bg-black text-white p-3" />
+                  <RiLinkedinFill className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
               </div>
               <div>
@@ -201,6 +230,11 @@ const UserDetails = () => {
                   className="flex my-auto mb-4"
                 >
                   <SiTwitter className="text-5xl rounded-full bg-black text-white p-3" />
+                </a>
+              </div>
+              <div>
+                <a href={tikTok} target="a_blank" className="flex my-auto mb-4">
+                  <FaTiktok className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
               </div>
               <div>
@@ -215,15 +249,6 @@ const UserDetails = () => {
               <div>
                 <a href={gitHub} target="a_blank" className="flex my-auto mb-4">
                   <BsGithub className="text-5xl rounded-full bg-black text-white p-3" />
-                </a>
-              </div>
-              <div>
-                <a
-                  href="https://www.reddit.com/user/Humble_Replacement99"
-                  target="a_blank"
-                  className="flex my-auto mb-4"
-                >
-                  <FaRedditAlien className="text-5xl rounded-full bg-black text-white p-3" />
                 </a>
               </div>
             </Carousel>

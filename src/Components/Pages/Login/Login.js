@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import img from "../../Assets/Website Related Items/mockup 2.png";
@@ -11,7 +12,7 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     login(email, password).then((data) => {
-      console.log(data);
+      toast.success("Logged Successfully");
       Navigate("/");
     });
   };

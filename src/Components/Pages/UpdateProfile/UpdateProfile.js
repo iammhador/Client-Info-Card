@@ -6,13 +6,14 @@ const UpdateProfile = () => {
   // fetch("http://localhost:5000/users")
   //   .then((res) => res.json())
   //   .then((data) => console.log(data));
+  console.log(user);
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
     const form = e.target;
     //# Personal Details:
     const fullName = form.fullName.value;
-    const email = form.email.value;
+    const location = form.location.value;
     const aboutYourself = form.aboutYourself.value;
     const designation = form.designation.value;
     const contactNumber = form.contactNumber.value;
@@ -30,7 +31,8 @@ const UpdateProfile = () => {
 
     const updateInformation = {
       fullName: fullName,
-      email: email,
+      email: user.email,
+      location: location,
       aboutYourself: aboutYourself,
       designation: designation,
       contactNumber: contactNumber,
@@ -43,7 +45,8 @@ const UpdateProfile = () => {
       whatsApp: whatsApp,
       tikTok: tikTok,
       gitHub: gitHub,
-      // used for filtering
+
+      //# used for filtering
       username: user.displayName,
     };
 
@@ -88,10 +91,10 @@ const UpdateProfile = () => {
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
                   <input
                     className="pl-2 outline-none border-none"
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email Address"
+                    type="text"
+                    name="location"
+                    id="location"
+                    placeholder="Location ( State, City ) "
                   ></input>
                 </div>
               </div>

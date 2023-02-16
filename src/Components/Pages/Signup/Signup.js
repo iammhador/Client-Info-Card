@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import img from "../../Assets/Website Related Items/mockup 2.png";
@@ -31,6 +32,7 @@ const Signup = () => {
           singUpWithEmailPassword(email, password).then((result) => {
             updateUser({ displayName: username })
               .then(() => {
+                toast.success("Successfully Singed Up");
                 navigate("/");
               })
               .catch((err) => {
