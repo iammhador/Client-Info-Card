@@ -13,7 +13,7 @@ const Login = () => {
     const password = e.target.password.value;
     login(email, password).then((data) => {
       toast.success("Logged Successfully");
-      Navigate("/");
+      // Navigate("/update-profile");
     });
   };
   return (

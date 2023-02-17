@@ -5,8 +5,8 @@ import "./ProfileNav.module.css";
 const ProfileNav = () => {
   return (
     <nav className=" w-full md:w-full lg:w-1/3  grid grid-cols-1 fixed bottom-0  md:bottom-9 lg:left-1/3 bg-transparent ">
-      <div class="w-full max-w-md mx-auto">
-        <div class=" bg-white shadow-2xl rounded-none md:rounded-2xl">
+      <div className="w-full max-w-md mx-auto">
+        <div className=" bg-white shadow-2xl rounded-none md:rounded-2xl">
           <div className="flex justify-evenly p-4 lg:rounded-md">
             <NavLink
               className={({ isActive }) =>

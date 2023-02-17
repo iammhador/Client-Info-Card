@@ -3,10 +3,6 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
 const UpdateProfile = () => {
   const { user } = useContext(AuthContext);
-  // fetch("http://localhost:5000/users")
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data));
-  console.log(user);
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
@@ -18,6 +14,7 @@ const UpdateProfile = () => {
     const designation = form.designation.value;
     const contactNumber = form.contactNumber.value;
     const websiteAddress = form.websiteAddress.value;
+    const image = form.image.files[0];
 
     //# Social Information:
     const facebook = form.facebook.value;
@@ -29,36 +26,50 @@ const UpdateProfile = () => {
     const tikTok = form.tikTok.value;
     const gitHub = form.gitHub.value;
 
-    const updateInformation = {
-      fullName: fullName,
-      email: user.email,
-      location: location,
-      aboutYourself: aboutYourself,
-      designation: designation,
-      contactNumber: contactNumber,
-      websiteAddress: websiteAddress,
-      facebook: facebook,
-      instagram: instagram,
-      linkedIn: linkedIn,
-      twitter: twitter,
-      youTube: youTube,
-      whatsApp: whatsApp,
-      tikTok: tikTok,
-      gitHub: gitHub,
-
-      //# used for filtering
-      username: user.displayName,
-    };
-
-    fetch("http://localhost:5000/updateInformation", {
+    //# Images Pass To IMGBB Server:
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
+    fetch(url, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateInformation),
+      body: formData,
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((response) => response.json())
+      .then((data) => {
+        //# If Successfully Upload Profile Picture, Then Only Other's Data Will Go To Server:
+        if (data.success) {
+          const updateInformation = {
+            fullName: fullName,
+            email: user.email,
+            location: location,
+            aboutYourself: aboutYourself,
+            designation: designation,
+            contactNumber: contactNumber,
+            websiteAddress: websiteAddress,
+            facebook: facebook,
+            instagram: instagram,
+            linkedIn: linkedIn,
+            twitter: twitter,
+            youTube: youTube,
+            whatsApp: whatsApp,
+            tikTok: tikTok,
+            gitHub: gitHub,
+
+            //# used for filtering
+            username: user.displayName,
+          };
+
+          fetch("http://localhost:5000/updateInformation", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(updateInformation),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+        }
+      });
   };
   return (
     <div>
@@ -138,6 +149,18 @@ const UpdateProfile = () => {
                     name="websiteAddress"
                     id="websiteAddress"
                     placeholder="Website Address"
+                  ></input>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
+                  <input
+                    className="pl-2 outline-none border-none mx-1"
+                    type="file"
+                    name="image"
+                    id="image"
+                    placeholder="Your Picture"
                   ></input>
                 </div>
               </div>
