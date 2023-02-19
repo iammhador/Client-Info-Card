@@ -40,6 +40,7 @@ const UpdateProfile = () => {
         if (data.success) {
           const updateInformation = {
             fullName: fullName,
+            image: image,
             email: user.email,
             location: location,
             aboutYourself: aboutYourself,
@@ -148,7 +149,7 @@ const UpdateProfile = () => {
                     type="text"
                     name="websiteAddress"
                     id="websiteAddress"
-                    placeholder="Website Address"
+                    placeholder="Personal Website"
                   ></input>
                 </div>
               </div>

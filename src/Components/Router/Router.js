@@ -3,11 +3,12 @@ import Home from "../Pages/Home/Home";
 import Error from "../Pages/Error/Error";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
-import UserInfo from "../Pages/Profile/UserInfo";
+// import UserInfo from "../Pages/Profile/UserInfo";
 import Profile from "../Layout/Profile";
 import UserDetails from "../Pages/Profile/UserDetails";
-import EditDetails from "../Pages/Profile/EditDetails";
+// import EditDetails from "../Pages/Profile/EditDetails";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import { Profiler } from "react";
 
 const { createHashRouter } = require("react-router-dom");
 
@@ -36,26 +37,28 @@ const Router = createHashRouter([
     ],
   },
   {
-    path: "/profile",
+    path: "/edit-profile",
     element: <Profile />,
     errorElement: <Error />,
     children: [
+      // {
+      //   path: "/profile",
+      //   element: <UserInfo />,
+      // },
       {
-        path: "/profile",
-        element: <UserInfo />,
-      },
-      {
-        path: "/profile/editdetails",
-        element: <EditDetails />,
+        path: "/edit-profile",
+        element: <Profiler />,
       },
     ],
   },
   {
-    path: "/information/:username",
+    path: "/profile/:username",
     element: <UserDetails />,
     errorElement: <Error />,
     loader: async ({ params }) => {
-      return fetch(`http://localhost:5000/users?username=${params.username}`);
+      return fetch(
+        `http://localhost:5000/updateInformation?username=${params.username}`
+      );
     },
   },
 ]);

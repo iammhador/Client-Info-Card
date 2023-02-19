@@ -33,7 +33,7 @@ const Signup = () => {
             updateUser({ displayName: username })
               .then(() => {
                 toast.success("Successfully Singed Up");
-                navigate("/");
+                navigate("/update-profile");
               })
               .catch((err) => {
                 console.log(err);
