@@ -1,65 +1,87 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ImHome3 } from "react-icons/im";
+import { CgProfile } from "react-icons/cg";
+import { GiArchiveRegister } from "react-icons/gi";
+import { GrGlobe } from "react-icons/gr";
+import { TbLogout } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import "./Navbar.module.css";
-
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const singOut = () => {
+    logOut();
+  };
   return (
-    <nav className=" w-full md:w-full lg:w-1/3  grid grid-cols-1 fixed bottom-0  md:bottom-9 lg:left-1/3 bg-transparent ">
+    <nav className="w-full md:w-full lg:w-1/3 grid grid-cols-1 fixed  border-primary border-t-4 bottom-0 md:bottom-0 lg:bottom-9 lg:border-0 lg:left-1/3 bg-gray-50 lg:rounded-xl">
       <div className="w-full max-w-md mx-auto">
-        <div className=" bg-transparent backdrop-blur-md shadow-2xl rounded-none md:rounded-2xl">
-          <div className="flex justify-evenly p-4 lg:rounded-md">
+        <div className="flex justify-evenly py-2 px-2">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "text-2xl text-primary  p-3 rounded-xl "
+                : "text-2xl text-black p-3 rounded-xl hover:text-primary"
+            }
+            to="/"
+          >
+            <ImHome3 className="mx-auto mb-1" />
+            <p className="text-sm font-medium uppercase">Home</p>
+          </NavLink>
+
+          {user?.email ? (
             <NavLink
+              onClick={singOut}
               className={({ isActive }) =>
                 isActive
-                  ? "text-2xl text-white bg-primary p-3 rounded-xl "
-                  : "text-2xl text-primary p-3 rounded-xl hover:bg-primary  hover:text-accent"
+                  ? "text-2xl text-primary  p-3 rounded-xl "
+                  : "text-2xl text-black p-3 rounded-xl hover:text-primary"
               }
               to="/"
             >
-              <ImHome3 />
+              <TbLogout className="mx-auto mb-1" />
+              <p className="text-sm font-medium uppercase">Logout</p>
             </NavLink>
+          ) : (
+            <>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-2xl text-primary  p-3 rounded-xl "
+                    : "text-2xl text-black p-3 rounded-xl hover:text-primary"
+                }
+                to="/login"
+              >
+                <CgProfile className="mx-auto mb-1" />
+                <p className="text-sm font-medium uppercase">Login</p>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-2xl text-primary  p-3 rounded-xl "
+                    : "text-2xl text-black p-3 rounded-xl hover:text-primary"
+                }
+                to="/register"
+              >
+                <GiArchiveRegister className="mx-auto mb-1" />
+                <p className="text-sm font-medium uppercase">Register</p>
+              </NavLink>
+            </>
+          )}
+
+          {user?.displayName || user?.email ? (
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? "text-2xl text-white bg-primary p-3 rounded-xl "
-                  : "text-2xl text-primary p-3 rounded-xl hover:bg-primary  hover:text-white"
+                  ? "text-2xl text-primary  p-3 rounded-xl "
+                  : "text-2xl text-black p-3 rounded-xl hover:text-primary"
               }
-              to="/"
+              to={`/profile/${user.displayName}`}
             >
-              <ImHome3 />
+              <GrGlobe className="mx-auto mb-1" />
+              <p className="text-sm font-medium uppercase">Visit</p>
             </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-2xl text-white bg-primary p-3 rounded-xl "
-                  : "text-2xl text-primary p-3 rounded-xl hover:bg-primary  hover:text-white"
-              }
-              to="/"
-            >
-              <ImHome3 />
-            </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-2xl text-white bg-primary p-3 rounded-xl "
-                  : "text-2xl text-primary p-3 rounded-xl hover:bg-primary  hover:text-white"
-              }
-              to="/"
-            >
-              <ImHome3 />
-            </NavLink>
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-2xl text-white bg-primary p-3 rounded-xl "
-                  : "text-2xl text-primary p-3 rounded-xl hover:bg-primary  hover:text-white"
-              }
-              to="/"
-            >
-              <ImHome3 />
-            </NavLink>
-          </div>
+          ) : null}
         </div>
       </div>
     </nav>

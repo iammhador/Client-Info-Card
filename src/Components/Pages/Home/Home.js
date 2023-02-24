@@ -1,9 +1,10 @@
 import React from "react";
 import MessengerCustomerChat from "react-messenger-customer-chat";
+import Banner from "./Banner";
 const Home = () => {
   return (
-    <div>
-      <h1>This is a home page</h1>
+    <div className="mb-20">
+      <Banner />
       <MessengerCustomerChat
         pageId="103839155949753"
         appId="565056462228528"
