@@ -4,11 +4,13 @@ import Error from "../Pages/Error/Error";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
 // import UserInfo from "../Pages/Profile/UserInfo";
-import Profile from "../Layout/Profile";
+// import Profile from "../Layout/Profile";
 import UserDetails from "../Pages/Profile/UserDetails";
 // import EditDetails from "../Pages/Profile/EditDetails";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
-import { Profiler } from "react";
+// import { Profiler } from "react";
+import EditDetails from "../Pages/Profile/EditDetails";
+import Notify from "../Pages/Notification.js/Notify";
 
 const { createHashRouter } = require("react-router-dom");
 
@@ -34,11 +36,15 @@ const Router = createHashRouter([
         path: "/update-profile",
         element: <UpdateProfile />,
       },
+      {
+        path: "/updated-successfully",
+        element: <Notify />,
+      },
     ],
   },
   {
     path: "/edit-profile",
-    element: <Profile />,
+    element: <EditDetails />,
     errorElement: <Error />,
     children: [
       // {
@@ -47,7 +53,7 @@ const Router = createHashRouter([
       // },
       {
         path: "/edit-profile",
-        element: <Profiler />,
+        element: <EditDetails />,
       },
     ],
   },

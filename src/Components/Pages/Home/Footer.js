@@ -6,11 +6,11 @@ import { BsYoutube } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <footer className="footer items-center p-4 bg-black text-neutral-content px-20 pt-20 pb-32">
-      <div className="items-center grid-flow-col">
+    <footer className="footer  bg-black text-neutral-content  px-8 md:px-12 lg:px-20 pt-20 pb-36">
+      <div>
         <svg
-          width="36"
-          height="36"
+          width="50"
+          height="50"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
           fillRule="evenodd"
@@ -21,22 +21,28 @@ const Footer = () => {
         </svg>
         <p>Copyright © 2023 - All right reserved by Infocard.</p>
       </div>
-      <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-        <a href="https://www.facebook.com/infocardsofficial" target="a_blank">
-          <GrFacebookOption className="fill-current text-3xl" />
-        </a>
-        <a href="https://www.instagram.com/infocardofficial/" target="a_blank">
-          <BsInstagram className="fill-current text-3xl" />
-        </a>
-        <a href="https://www.tiktok.com/@infocardofficial" target="a_blank">
-          <FaTiktok className="fill-current text-3xl" />
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCzIBgRvK492C9NplDV2eFww"
-          target="a_blank"
-        >
-          <BsYoutube className="fill-current text-3xl" />
-        </a>
+      <div>
+        <span className="footer-title">Social</span>
+        <div className="grid grid-flow-col gap-4">
+          <a href="https://www.facebook.com/infocardsofficial" target="a_blank">
+            <GrFacebookOption className="fill-current text-3xl" />
+          </a>
+          <a
+            href="https://www.instagram.com/infocardofficial/"
+            target="a_blank"
+          >
+            <BsInstagram className="fill-current text-3xl" />
+          </a>
+          <a href="https://www.tiktok.com/@infocardofficial" target="a_blank">
+            <FaTiktok className="fill-current text-3xl" />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UCzIBgRvK492C9NplDV2eFww"
+            target="a_blank"
+          >
+            <BsYoutube className="fill-current text-3xl" />
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -2,11 +2,11 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="bg-black px-20 py-20">
-      <h2 className="text-white text-5xl font-bold text-center uppercase mb-7">
+    <div className="bg-black px-8 md:px-12 lg:px-20 py-10 md:14 lg:py-20">
+      <h2 className="text-white text-xl md:text-2xl lg:text-5xl font-bold text-center uppercase mb-7">
         About us
       </h2>
-      <p className="text-lg text-gray-300 font-normal text-justify">
+      <p className="text-sm md:text-base lg:text-lg text-gray-300 font-normal text-justify">
         Welcome to our custom NFC card design page! We are dedicated to
         providing our customers with the highest quality NFC cards and services.
         Our team of experts has experience in the industry, and we are dedicated

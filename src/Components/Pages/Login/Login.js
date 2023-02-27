@@ -1,21 +1,28 @@
 import React, { useContext } from "react";
 import { toast } from "react-hot-toast";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    login(email, password).then((data) => {
-      Navigate("/update-profile");
-      toast.success("Logged Successfully");
-    });
+    login(email, password)
+      .then(() => {
+        toast.success("Logged Successfully");
+        // navigate(`profile/${user?.displayName}`);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center h-screen">

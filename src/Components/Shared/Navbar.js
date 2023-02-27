@@ -4,6 +4,7 @@ import { CgProfile } from "react-icons/cg";
 import { GiArchiveRegister } from "react-icons/gi";
 import { GrGlobe } from "react-icons/gr";
 import { TbLogout } from "react-icons/tb";
+import { TbEdit } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import "./Navbar.module.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
@@ -31,17 +32,47 @@ const Navbar = () => {
 
           {user?.email ? (
             <NavLink
-              onClick={singOut}
               className={({ isActive }) =>
                 isActive
                   ? "text-2xl text-primary  p-3 rounded-xl "
                   : "text-2xl text-black p-3 rounded-xl hover:text-primary"
               }
-              to="/"
+              to="/edit-profile"
             >
-              <TbLogout className="mx-auto mb-1" />
-              <p className="text-sm font-medium uppercase">Logout</p>
+              <TbEdit className="mx-auto mb-1" />
+              <p className="text-sm font-medium uppercase">Edit</p>
             </NavLink>
+          ) : null}
+
+          {user?.displayName || user?.email ? (
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-2xl text-primary  p-3 rounded-xl "
+                  : "text-2xl text-black p-3 rounded-xl hover:text-primary"
+              }
+              to={`/profile/${user.displayName}`}
+            >
+              <GrGlobe className="mx-auto mb-1" />
+              <p className="text-sm font-medium uppercase">Visit</p>
+            </NavLink>
+          ) : null}
+
+          {user?.email ? (
+            <>
+              <NavLink
+                onClick={singOut}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-2xl text-primary  p-3 rounded-xl "
+                    : "text-2xl text-black p-3 rounded-xl hover:text-primary"
+                }
+                to="/"
+              >
+                <TbLogout className="mx-auto mb-1" />
+                <p className="text-sm font-medium uppercase">Logout</p>
+              </NavLink>
+            </>
           ) : (
             <>
               <NavLink
@@ -68,20 +99,6 @@ const Navbar = () => {
               </NavLink>
             </>
           )}
-
-          {user?.displayName || user?.email ? (
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-2xl text-primary  p-3 rounded-xl "
-                  : "text-2xl text-black p-3 rounded-xl hover:text-primary"
-              }
-              to={`/profile/${user.displayName}`}
-            >
-              <GrGlobe className="mx-auto mb-1" />
-              <p className="text-sm font-medium uppercase">Visit</p>
-            </NavLink>
-          ) : null}
         </div>
       </div>
     </nav>
