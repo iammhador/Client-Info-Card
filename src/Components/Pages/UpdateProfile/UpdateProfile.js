@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
+import { ThreeDots } from "react-loader-spinner";
 
 //# Personal Information:
 import { CgProfile } from "react-icons/cg";
@@ -20,10 +21,12 @@ import { BsYoutube } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
 import { AiOutlineGithub } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
+  const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
-  // const [img, setImg] = useState("");
+  const navigate = useNavigate();
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();
@@ -35,7 +38,6 @@ const UpdateProfile = () => {
     const designation = form.designation.value;
     const contactNumber = form.contactNumber.value;
     const websiteAddress = form.websiteAddress.value;
-    const image = form.image.files[0];
 
     //# Social Information:
     const facebook = form.facebook.value;
@@ -48,6 +50,8 @@ const UpdateProfile = () => {
     const gitHub = form.gitHub.value;
 
     //# Images Pass To IMGBB Server:
+
+    const image = e.target.image.files[0];
     const formData = new FormData();
     formData.append("image", image);
     const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
@@ -80,7 +84,7 @@ const UpdateProfile = () => {
             //# used for filtering
             username: user.displayName,
           };
-
+          setLoading(true);
           fetch("https://infocard-zeta.vercel.app/updateInformation", {
             method: "POST",
             headers: {
@@ -89,7 +93,10 @@ const UpdateProfile = () => {
             body: JSON.stringify(updateInformation),
           })
             .then((res) => res.json())
-            .then((data) => navigator("/notify"));
+            .then(() => {
+              setLoading(false);
+              navigate("/updated-successfully");
+            });
         }
       });
   };
@@ -116,6 +123,7 @@ const UpdateProfile = () => {
                     name="fullName"
                     id="fullName"
                     placeholder="Full Name"
+                    required
                   ></input>
                 </div>
 
@@ -126,7 +134,7 @@ const UpdateProfile = () => {
                     type="text"
                     name="location"
                     id="location"
-                    placeholder="Address ( State, City ) "
+                    placeholder="Address ( State, City )"
                   ></input>
                 </div>
               </div>
@@ -163,6 +171,7 @@ const UpdateProfile = () => {
                     name="contactNumber"
                     id="contactNumber"
                     placeholder="Contact Number"
+                    required
                   ></input>
                 </div>
 
@@ -183,7 +192,12 @@ const UpdateProfile = () => {
                   <label for="inputTag" className="cursor-pointer text-info">
                     Profile Photo <br />
                     <BsCameraFill className="text-4xl text-info font-extrabold mx-auto mt-3" />
-                    <input id="inputTag" type="file" className="hidden " />
+                    <input
+                      id="inputTag"
+                      type="file"
+                      name="image"
+                      className="hidden "
+                    />
                     <br />
                     <span className="text-primary"></span>
                   </label>
@@ -297,7 +311,20 @@ const UpdateProfile = () => {
               type="submit"
               className="btn btn-primary my-4 w-full rounded-2xl font-bold text-white shadow-xl hover:bg-black"
             >
-              Update Information
+              {loading ? (
+                <ThreeDots
+                  height="40"
+                  width="40"
+                  radius="9"
+                  color="#fff"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClassName=""
+                  visible={true}
+                />
+              ) : (
+                "Update Information"
+              )}
             </button>
           </form>
         </div>

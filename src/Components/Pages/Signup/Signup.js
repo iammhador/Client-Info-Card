@@ -5,9 +5,11 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
+import { ThreeDots } from "react-loader-spinner";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
 
 const Signup = () => {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { singUpWithEmailPassword, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ const Signup = () => {
     const password = form.password.value;
     const newUser = { email, username };
 
+    setLoading(true);
     fetch("https://infocard-zeta.vercel.app/registration", {
       method: "POST",
       headers: {
@@ -37,6 +40,7 @@ const Signup = () => {
               .then(() => {
                 toast.success("Successfully Singed Up");
                 navigate("/update-profile");
+                setLoading(false);
               })
               .catch((err) => {
                 console.log(err);
@@ -105,7 +109,20 @@ const Signup = () => {
             type="submit"
             className="btn btn-primary my-4 w-full rounded-2xl font-bold shadow-xl text-white hover:bg-black"
           >
-            Register
+            {loading ? (
+              <ThreeDots
+                height="40"
+                width="40"
+                radius="9"
+                color="#fff"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            ) : (
+              "Register"
+            )}
           </button>
         </form>
         {/* if social signup gets implemented */}
