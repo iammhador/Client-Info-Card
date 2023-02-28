@@ -31,11 +31,11 @@ const Home = () => {
       >
         <span>UP</span>
       </ScrollToTop> */}
-      <MessengerCustomerChat
+      {/* <MessengerCustomerChat
         pageId="103839155949753"
         appId="565056462228528"
         htmlRef="<REF_STRING>"
-      />
+      /> */}
     </div>
   );
 };

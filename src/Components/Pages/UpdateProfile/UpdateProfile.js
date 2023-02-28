@@ -54,7 +54,7 @@ const UpdateProfile = () => {
     const image = e.target.image.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
+    const url = `https://api.imgbb.com/1/upload?key=c848751fc15435ca53ea912d84231c13`;
     fetch(url, {
       method: "POST",
       body: formData,
