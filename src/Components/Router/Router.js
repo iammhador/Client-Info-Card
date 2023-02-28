@@ -33,30 +33,51 @@ const Router = createHashRouter([
         element: <Signup />,
       },
       {
+        path: "/edit-profile",
+        element: <EditDetails />,
+      },
+    ],
+  },
+
+  {
+    path: "/update-profile",
+    element: <UpdateProfile />,
+    errorElement: <Error />,
+    children: [
+      {
         path: "/update-profile",
         element: <UpdateProfile />,
       },
+    ],
+  },
+
+  {
+    path: "/updated-successfully",
+    element: <Notify />,
+    errorElement: <Error />,
+    children: [
       {
         path: "/updated-successfully",
         element: <Notify />,
       },
     ],
   },
-  {
-    path: "/edit-profile",
-    element: <EditDetails />,
-    errorElement: <Error />,
-    children: [
-      // {
-      //   path: "/profile",
-      //   element: <UserInfo />,
-      // },
-      {
-        path: "/edit-profile",
-        element: <EditDetails />,
-      },
-    ],
-  },
+  // {
+  //   path: "/edit-profile",
+  //   element: <EditDetails />,
+  //   errorElement: <Error />,
+  //   children: [
+  //     {
+  //       path: "/profile",
+  //       element: <UserInfo />,
+  //     },
+  //     {
+  //       path: "/edit-profile",
+  //       element: <EditDetails />,
+  //     },
+  //   ],
+  // },
+
   {
     path: "/profile/:username",
     element: <UserDetails />,

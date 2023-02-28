@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -6,11 +6,18 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import { ThreeDots } from "react-loader-spinner";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
+import AOS from "aos";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+  }, []);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -31,13 +38,19 @@ const Login = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 justify-center h-screen">
+    <div
+      data-aos="zoom-in-up"
+      className="grid grid-cols-1 md:grid-cols-2 justify-center h-screen"
+    >
       <div className="left bg-primary flex justify-center flex-col items-center h-screen ">
         <img className="" src={img} alt="" />
       </div>
       <div className="right flex justify-center flex-col items-center h-screen px-20 lg:px-0">
         <form onSubmit={handleLogin}>
-          <h1 className="font-bold text-primary text-2xl my-7 text-center">
+          <h1
+            data-aos="zoom-in-up"
+            className="font-bold text-primary text-2xl my-7 text-center"
+          >
             Login to your account!
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ">

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 const Notify = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
   return (
     <div className="text-center py-14 lg:py-36 w-5/6 mx-auto   my-16">
       <p className="text-black text-lg md:text-xl lg:text-2xl font-bold uppercase">

@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Aos from "aos";
 
 const AboutUs = () => {
+  useEffect(() => {
+    Aos.init({
+      duration: 2000,
+    });
+  }, []);
   return (
-    <div className="bg-black px-8 md:px-12 lg:px-20 py-10 md:14 lg:py-20">
+    <div
+      data-aos="fade-down-right"
+      className="bg-black px-8 md:px-12 lg:px-20 py-10 md:14 lg:py-20"
+    >
       <h2 className="text-white text-xl md:text-2xl lg:text-5xl font-bold text-center uppercase mb-7">
         About us
       </h2>

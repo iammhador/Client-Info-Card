@@ -99,7 +99,7 @@ const EditDetails = () => {
     <div>
       <img src={TopImage} alt="Top Banner" />
       <div className="w-5/6 mx-auto">
-        <div className="my-10 md:my-20 w-11/12 mx-auto lg:mb-32">
+        <div className="my-10 md:my-20 w-11/12 mx-auto mb-24 md:mb-28  lg:mb-32">
           <div className="my-10">
             <form onSubmit={handleEditDetails}>
               <div className="mb-5">

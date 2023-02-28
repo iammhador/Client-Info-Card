@@ -6,6 +6,7 @@ import CreateYourCard from "./CreateYourCard";
 import Footer from "./Footer";
 import Information from "./Information";
 import ScrollToTop from "./ScrollToTop";
+
 // import ScrollToTop from "react-scroll-to-top";
 const Home = () => {
   return (
@@ -13,7 +14,7 @@ const Home = () => {
       <Banner />
       <Information />
       <AboutUs />
-      <CreateYourCard />
+      <CreateYourCard data-aos="fade-down" />
       <Footer />
       <ScrollToTop />
       {/* <ScrollToTop

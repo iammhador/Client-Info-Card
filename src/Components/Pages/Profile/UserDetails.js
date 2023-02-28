@@ -67,18 +67,16 @@ const UserDetails = () => {
   };
 
   const visitingCard = () => {
-    //create a new vCard
-
+    //! create a new vCard
     const myVCard = new VCard();
-
     myVCard
       .addName(`${fullName}`)
       .addJobtitle(`${designation}`)
       .addEmail(`${email}`)
       .addPhoneNumber(`${contactNumber}`)
       .addAddress(null, null, "", "", "", "", `${location}`)
-      .addURL(`${websiteAddress}`)
-      .addPhoto(`${image}`, "jpeg");
+      .addURL(`${websiteAddress}`);
+    // .addPhoto(image, "JPEG");
 
     download(myVCard.toString(), `${fullName}.vcf`);
   };
@@ -93,7 +91,7 @@ const UserDetails = () => {
         {image ? (
           <div className="avatar">
             <div className="w-24 rounded-full ring ring-white ring-offset-secondary-100 ring-offset-2 absolute -top-16 left-8 md:left-16 lg:left-20">
-              <img src={image} alt="Avater" />
+              <img src={image ? image : ProfileImage} alt="Avater" />
             </div>
           </div>
         ) : null}

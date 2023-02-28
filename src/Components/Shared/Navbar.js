@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ImHome3 } from "react-icons/im";
 import { CgProfile } from "react-icons/cg";
 import { GiArchiveRegister } from "react-icons/gi";
@@ -10,7 +10,7 @@ import "./Navbar.module.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const [loading, setLoading] = useState(false);
   const singOut = () => {
     logOut();
   };
@@ -29,7 +29,6 @@ const Navbar = () => {
             <ImHome3 className="mx-auto mb-1" />
             <p className="text-sm font-medium uppercase">Home</p>
           </NavLink>
-
           {user?.email ? (
             <NavLink
               className={({ isActive }) =>
@@ -45,17 +44,19 @@ const Navbar = () => {
           ) : null}
 
           {user?.displayName || user?.email ? (
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? "text-2xl text-primary  p-3 rounded-xl "
-                  : "text-2xl text-black p-3 rounded-xl hover:text-primary"
-              }
-              to={`/profile/${user.displayName}`}
-            >
-              <GrGlobe className="mx-auto mb-1" />
-              <p className="text-sm font-medium uppercase">Visit</p>
-            </NavLink>
+            <>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-2xl text-primary  p-3 rounded-xl "
+                    : "text-2xl text-black p-3 rounded-xl hover:text-primary"
+                }
+                to={`/profile/${user.displayName}`}
+              >
+                <GrGlobe className="mx-auto mb-1" />
+                <p className="text-sm font-medium uppercase">Visit</p>
+              </NavLink>
+            </>
           ) : null}
 
           {user?.email ? (
