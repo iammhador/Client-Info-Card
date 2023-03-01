@@ -171,7 +171,8 @@ const EditDetails = () => {
                       type="text"
                       name="fullName"
                       id="fullName"
-                      placeholder={fullName ? fullName : "Full Name"}
+                      placeholder="Full Name"
+                      defaultValue={fullName && fullName}
                     ></input>
                   </div>
 
@@ -182,9 +183,8 @@ const EditDetails = () => {
                       type="text"
                       name="location"
                       id="location"
-                      placeholder={
-                        location ? location : "Address ( City, Country )"
-                      }
+                      placeholder="Address (City, Country)"
+                      defaultValue={location && location}
                     ></input>
                   </div>
                 </div>
@@ -197,9 +197,8 @@ const EditDetails = () => {
                       type="text"
                       name="aboutYourself"
                       id="aboutYourself"
-                      placeholder={
-                        aboutYourself ? aboutYourself : "About Yourself"
-                      }
+                      placeholder="About Yourself"
+                      defaultValue={aboutYourself && aboutYourself}
                     ></input>
                   </div>
 
@@ -210,7 +209,8 @@ const EditDetails = () => {
                       type="text"
                       name="designation"
                       id="designation"
-                      placeholder={designation ? designation : "Designation"}
+                      placeholder="Designation"
+                      defaultValue={designation && designation}
                     ></input>
                   </div>
                 </div>
@@ -222,9 +222,8 @@ const EditDetails = () => {
                       type="text"
                       name="contactNumber"
                       id="contactNumber"
-                      placeholder={
-                        contactNumber ? contactNumber : "Contact Number"
-                      }
+                      placeholder="Contact Number"
+                      defaultValue={contactNumber && contactNumber}
                     ></input>
                   </div>
 
@@ -235,9 +234,8 @@ const EditDetails = () => {
                       type="text"
                       name="websiteAddress"
                       id="websiteAddress"
-                      placeholder={
-                        websiteAddress ? websiteAddress : "Website Address"
-                      }
+                      placeholder="Website Address"
+                      defaultValue={websiteAddress && websiteAddress}
                     ></input>
                   </div>
                 </div>
@@ -277,7 +275,8 @@ const EditDetails = () => {
                       type="text"
                       name="facebook"
                       id="facebook"
-                      placeholder={facebook ? facebook : "Facebook Profile URL"}
+                      placeholder="Facebook Profile URL"
+                      defaultValue={facebook && facebook}
                     ></input>
                   </div>
 
@@ -288,9 +287,8 @@ const EditDetails = () => {
                       type="text"
                       name="instagram"
                       id="instagram"
-                      placeholder={
-                        instagram ? instagram : "Instagram Profile URL"
-                      }
+                      placeholder="Instagram Profile URL"
+                      defaultValue={instagram && instagram}
                     ></input>
                   </div>
                 </div>
@@ -303,7 +301,8 @@ const EditDetails = () => {
                       type="text"
                       name="linkedIn"
                       id="linkedIn"
-                      placeholder={linkedIn ? linkedIn : "LinkedIn Profile URL"}
+                      placeholder="LinkedIn Profile URL"
+                      defaultValue={linkedIn && linkedIn}
                     ></input>
                   </div>
 
@@ -314,7 +313,8 @@ const EditDetails = () => {
                       type="text"
                       name="twitter"
                       id="twitter"
-                      placeholder={twitter ? twitter : "Twitter Profile URL"}
+                      placeholder="Twitter Profile URL"
+                      defaultValue={twitter && twitter}
                     ></input>
                   </div>
                 </div>
@@ -326,7 +326,8 @@ const EditDetails = () => {
                       type="text"
                       name="youTube"
                       id="youTube"
-                      placeholder={youTube ? youTube : "YouTube Channel URL"}
+                      placeholder="YouTube Channel URL"
+                      defaultValue={youTube && youTube}
                     ></input>
                   </div>
 
@@ -337,7 +338,8 @@ const EditDetails = () => {
                       type="text"
                       name="whatsApp"
                       id="whatsApp"
-                      placeholder={whatsApp ? whatsApp : "WhatsApp Number"}
+                      placeholder="WhatsApp Number"
+                      defaultValue={whatsApp && whatsApp}
                     ></input>
                   </div>
                 </div>
@@ -350,7 +352,8 @@ const EditDetails = () => {
                       type="text"
                       name="tikTok"
                       id="tikTok"
-                      placeholder={tikTok ? tikTok : "TikTok Profile URL"}
+                      placeholder="TikTok Profile URL"
+                      defaultValue={tikTok && tikTok}
                     ></input>
                   </div>
 
@@ -361,7 +364,8 @@ const EditDetails = () => {
                       type="text"
                       name="gitHub"
                       id="gitHub"
-                      placeholder={gitHub ? gitHub : "GitHub Profile URL"}
+                      placeholder="GitHub Profile URL"
+                      defaultValue={gitHub && gitHub}
                     ></input>
                   </div>
                 </div>
@@ -374,7 +378,8 @@ const EditDetails = () => {
                       type="text"
                       name="reddit"
                       id="reddit"
-                      placeholder={reddit ? reddit : "Reddit Profile URL"}
+                      placeholder="Reddit Profile URL"
+                      defaultValue={reddit && reddit}
                     ></input>
                   </div>
 
@@ -385,7 +390,8 @@ const EditDetails = () => {
                       type="text"
                       name="snapchat"
                       id="snapchat"
-                      placeholder={snapchat ? snapchat : "Snapchat Profile URL"}
+                      placeholder="Snapchat Profile URL"
+                      defaultValue={snapchat && snapchat}
                     ></input>
                   </div>
                 </div>
@@ -398,7 +404,8 @@ const EditDetails = () => {
                       type="text"
                       name="spotify"
                       id="spotify"
-                      placeholder={spotify ? spotify : "Spotify Profile URL"}
+                      placeholder="Spotify Profile URL"
+                      defaultValue={spotify && spotify}
                     ></input>
                   </div>
 
@@ -409,9 +416,8 @@ const EditDetails = () => {
                       type="text"
                       name="pinterest"
                       id="pinterest"
-                      placeholder={
-                        pinterest ? pinterest : "Pinterest Profile URL"
-                      }
+                      placeholder="Pinterest Profile URL"
+                      defaultValue={pinterest && pinterest}
                     ></input>
                   </div>
                 </div>
@@ -424,9 +430,8 @@ const EditDetails = () => {
                       type="text"
                       name="telegram"
                       id="telegram"
-                      placeholder={
-                        updatedTelegram ? updatedTelegram : "Telegram Username"
-                      }
+                      placeholder="Telegram Username"
+                      defaultValue={updatedTelegram && updatedTelegram}
                     ></input>
                   </div>
 
@@ -437,9 +442,8 @@ const EditDetails = () => {
                       type="text"
                       name="medium"
                       id="medium"
-                      placeholder={
-                        updatedMedium ? updatedMedium : "Medium Profile URL"
-                      }
+                      placeholder="Medium Profile URL"
+                      defaultValue={updatedMedium && updatedMedium}
                     ></input>
                   </div>
                 </div>
@@ -452,7 +456,8 @@ const EditDetails = () => {
                       type="text"
                       name="upwork"
                       id="upwork"
-                      placeholder={upwork ? upwork : "Upwork Profile URL"}
+                      placeholder="Upwork Profile URL"
+                      defaultValue={upwork && upwork}
                     ></input>
                   </div>
 
@@ -463,7 +468,8 @@ const EditDetails = () => {
                       type="text"
                       name="fiverr"
                       id="fiverr"
-                      placeholder={fiverr ? fiverr : "Fiverr Profile URL"}
+                      placeholder="Fiverr Profile URL"
+                      defaultValue={fiverr && fiverr}
                     ></input>
                   </div>
                 </div>
