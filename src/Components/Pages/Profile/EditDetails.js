@@ -21,12 +21,29 @@ import { BsWhatsapp } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
 import { AiOutlineGithub } from "react-icons/ai";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 const EditDetails = () => {
   const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  //# Information Collect From UseLoaderData:
+  const {
+    id,
+    fullName,
+    location,
+    aboutYourself,
+    designation,
+    contactNumber,
+    websiteAddress,
+    facebook,
+    instagram,
+    linkedIn,
+    twitter,
+    youTube,
+    whatsApp,
+    tikTok,
+    gitHub,
+  } = useLoaderData()[0];
   const handleEditDetails = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -49,57 +66,59 @@ const EditDetails = () => {
     const gitHub = form.gitHub.value;
 
     //# Images Pass To IMGBB Server:
-    const image = e.target.image.files[0];
-    const formData = new FormData();
-    formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        //# If Successfully Upload Profile Picture, Then Only Other's Data Will Go To Server:
-        if (data.success) {
-          const updateInformation = {
-            fullName: fullName,
-            image: data.data.url,
-            location: location,
-            aboutYourself: aboutYourself,
-            designation: designation,
-            contactNumber: contactNumber,
-            websiteAddress: websiteAddress,
-            facebook: facebook,
-            instagram: instagram,
-            linkedIn: linkedIn,
-            twitter: twitter,
-            youTube: youTube,
-            whatsApp: whatsApp,
-            tikTok: tikTok,
-            gitHub: gitHub,
-          };
+    // const image = e.target.image.files[0];
+    // const formData = new FormData();
+    // formData.append("image", image);
+    // const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
+    // fetch(url, {
+    //   method: "POST",
+    //   body: formData,
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //# If Successfully Upload Profile Picture, Then Only Other's Data Will Go To Server:
+    // if (data.success) {
+    const updateInformation = {
+      fullName: fullName,
+      // image: data.data.url,
+      location: location,
+      aboutYourself: aboutYourself,
+      designation: designation,
+      contactNumber: contactNumber,
+      websiteAddress: websiteAddress,
+      facebook: facebook,
+      instagram: instagram,
+      linkedIn: linkedIn,
+      twitter: twitter,
+      youTube: youTube,
+      whatsApp: whatsApp,
+      tikTok: tikTok,
+      gitHub: gitHub,
+    };
 
-          setLoading(true);
-          fetch(
-            `http://localhost:5000/updateInformation?username=${user?.displayName}`,
-            {
-              method: "PUT",
-              body: JSON.stringify(updateInformation),
-            }
-          )
-            .then((res) => res.json())
-            .then(() => {
-              setLoading(false);
-              navigate("/updated-successfully");
-            });
-        }
+    setLoading(true);
+    fetch(
+      `http://localhost:5000/updateInformation?username=${user?.displayName}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(updateInformation),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        navigate("/updated-successfully");
+        console.log(data);
       });
+    // });
   };
   return (
     <div>
-      <img src={TopImage} alt="Top Banner" />
-      <div className="w-5/6 mx-auto">
-        <div className="my-10 md:my-20 w-11/12 mx-auto mb-24 md:mb-28  lg:mb-32">
+      <div className="mb-28 md:mb-0">
+        <img src={TopImage} alt="Top Banner" />
+
+        <div className="my-10 md:my-20 w-11/12 mx-auto lg:mb-32">
           <div className="my-10">
             <form onSubmit={handleEditDetails}>
               <div className="mb-5">
@@ -117,7 +136,7 @@ const EditDetails = () => {
                       type="text"
                       name="fullName"
                       id="fullName"
-                      placeholder="Full Name"
+                      placeholder={fullName ? fullName : "Full Name"}
                     ></input>
                   </div>
 
@@ -128,7 +147,9 @@ const EditDetails = () => {
                       type="text"
                       name="location"
                       id="location"
-                      placeholder="Address ( State, City ) "
+                      placeholder={
+                        location ? location : "Address ( City, Country )"
+                      }
                     ></input>
                   </div>
                 </div>
@@ -141,7 +162,9 @@ const EditDetails = () => {
                       type="text"
                       name="aboutYourself"
                       id="aboutYourself"
-                      placeholder="About Yourself"
+                      placeholder={
+                        aboutYourself ? aboutYourself : "About Yourself"
+                      }
                     ></input>
                   </div>
 
@@ -152,7 +175,7 @@ const EditDetails = () => {
                       type="text"
                       name="designation"
                       id="designation"
-                      placeholder="Designation"
+                      placeholder={designation ? designation : "Designation"}
                     ></input>
                   </div>
                 </div>
@@ -164,7 +187,9 @@ const EditDetails = () => {
                       type="text"
                       name="contactNumber"
                       id="contactNumber"
-                      placeholder="Contact Number"
+                      placeholder={
+                        contactNumber ? contactNumber : "Contact Number"
+                      }
                     ></input>
                   </div>
 
@@ -175,7 +200,9 @@ const EditDetails = () => {
                       type="text"
                       name="websiteAddress"
                       id="websiteAddress"
-                      placeholder=" Website Address"
+                      placeholder={
+                        websiteAddress ? websiteAddress : "Website Address"
+                      }
                     ></input>
                   </div>
                 </div>
@@ -189,7 +216,7 @@ const EditDetails = () => {
                         id="inputTag"
                         type="file"
                         name="image"
-                        className="hidden "
+                        className="hidden"
                       />
                       <br />
                       <span className="text-primary"></span>
@@ -212,7 +239,7 @@ const EditDetails = () => {
                       type="text"
                       name="facebook"
                       id="facebook"
-                      placeholder="Facebook Profile URL"
+                      placeholder={facebook ? facebook : "Facebook Profile URL"}
                     ></input>
                   </div>
 
@@ -223,7 +250,9 @@ const EditDetails = () => {
                       type="text"
                       name="instagram"
                       id="instagram"
-                      placeholder="Instagram Profile URL"
+                      placeholder={
+                        instagram ? instagram : "Instagram Profile URL"
+                      }
                     ></input>
                   </div>
                 </div>
@@ -236,7 +265,7 @@ const EditDetails = () => {
                       type="text"
                       name="linkedIn"
                       id="linkedIn"
-                      placeholder="LinkedIn Profile URL"
+                      placeholder={linkedIn ? linkedIn : "LinkedIn Profile URL"}
                     ></input>
                   </div>
 
@@ -247,7 +276,7 @@ const EditDetails = () => {
                       type="text"
                       name="twitter"
                       id="twitter"
-                      placeholder="Twitter Profile URL"
+                      placeholder={twitter ? twitter : "Twitter Profile URL"}
                     ></input>
                   </div>
                 </div>
@@ -259,7 +288,7 @@ const EditDetails = () => {
                       type="text"
                       name="youTube"
                       id="youTube"
-                      placeholder="YouTube Channel URL"
+                      placeholder={youTube ? youTube : "YouTube Channel URL"}
                     ></input>
                   </div>
 
@@ -270,7 +299,7 @@ const EditDetails = () => {
                       type="text"
                       name="whatsApp"
                       id="whatsApp"
-                      placeholder="WhatsApp Number"
+                      placeholder={whatsApp ? whatsApp : "WhatsApp Number"}
                     ></input>
                   </div>
                 </div>
@@ -283,7 +312,7 @@ const EditDetails = () => {
                       type="text"
                       name="tikTok"
                       id="tikTok"
-                      placeholder="TikTok Profile URL"
+                      placeholder={tikTok ? tikTok : "TikTok Profile URL"}
                     ></input>
                   </div>
 
@@ -294,7 +323,7 @@ const EditDetails = () => {
                       type="text"
                       name="gitHub"
                       id="gitHub"
-                      placeholder="GitHub Profile URL"
+                      placeholder={gitHub ? gitHub : "GitHub Profile URL"}
                     ></input>
                   </div>
                 </div>

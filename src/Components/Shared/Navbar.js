@@ -36,7 +36,7 @@ const Navbar = () => {
                   ? "text-2xl text-primary  p-3 rounded-xl "
                   : "text-2xl text-black p-3 rounded-xl hover:text-primary"
               }
-              to="/edit-profile"
+              to={`/edit-profile/${user?.displayName}`}
             >
               <TbEdit className="mx-auto mb-1" />
               <p className="text-sm font-medium uppercase">Edit</p>

@@ -85,7 +85,7 @@ const UpdateProfile = () => {
             username: user.displayName,
           };
           setLoading(true);
-          fetch("https://infocard-zeta.vercel.app/updateInformation", {
+          fetch("http://localhost:5000/updateInformation", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -134,7 +134,7 @@ const UpdateProfile = () => {
                     type="text"
                     name="location"
                     id="location"
-                    placeholder="Address ( State, City )"
+                    placeholder="Address ( City, Country )"
                   ></input>
                 </div>
               </div>

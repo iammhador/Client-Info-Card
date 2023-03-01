@@ -23,7 +23,7 @@ const Signup = () => {
     const newUser = { email, username };
 
     setLoading(true);
-    fetch("https://infocard-zeta.vercel.app/registration", {
+    fetch("http://localhost:5000/registration", {
       method: "POST",
       headers: {
         "content-type": "application/json",
