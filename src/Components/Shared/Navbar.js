@@ -8,12 +8,15 @@ import { TbEdit } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import "./Navbar.module.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Loading from "../Pages/Loading/Loading";
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
+  const { user, logOut, loading } = useContext(AuthContext);
   const singOut = () => {
     logOut();
   };
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <nav className="w-full md:w-full lg:w-1/3 grid grid-cols-1 fixed  border-primary border-t-4 bottom-0 md:bottom-0 lg:bottom-9 lg:border-0 lg:left-1/3 bg-gray-50 lg:rounded-xl">
       <div className="w-full max-w-md mx-auto">
@@ -27,7 +30,7 @@ const Navbar = () => {
             to="/"
           >
             <ImHome3 className="mx-auto mb-1" />
-            <p className="text-sm font-medium uppercase">Home</p>
+            <p className="text-sm text-black font-medium uppercase">Home</p>
           </NavLink>
           {user?.email ? (
             <NavLink
@@ -39,7 +42,7 @@ const Navbar = () => {
               to={`/edit-profile/${user?.displayName}`}
             >
               <TbEdit className="mx-auto mb-1" />
-              <p className="text-sm font-medium uppercase">Edit</p>
+              <p className="text-sm text-black font-medium uppercase">Edit</p>
             </NavLink>
           ) : null}
 
@@ -54,7 +57,9 @@ const Navbar = () => {
                 to={`/profile/${user.displayName}`}
               >
                 <GrGlobe className="mx-auto mb-1" />
-                <p className="text-sm font-medium uppercase">Visit</p>
+                <p className="text-sm text-black font-medium uppercase">
+                  Visit
+                </p>
               </NavLink>
             </>
           ) : null}
@@ -71,7 +76,9 @@ const Navbar = () => {
                 to="/"
               >
                 <TbLogout className="mx-auto mb-1" />
-                <p className="text-sm font-medium uppercase">Logout</p>
+                <p className="text-sm text-black font-medium uppercase">
+                  Logout
+                </p>
               </NavLink>
             </>
           ) : (
@@ -85,7 +92,9 @@ const Navbar = () => {
                 to="/login"
               >
                 <CgProfile className="mx-auto mb-1" />
-                <p className="text-sm font-medium uppercase">Login</p>
+                <p className="text-sm text-black font-medium uppercase">
+                  Login
+                </p>
               </NavLink>
               <NavLink
                 className={({ isActive }) =>
@@ -96,7 +105,9 @@ const Navbar = () => {
                 to="/register"
               >
                 <GiArchiveRegister className="mx-auto mb-1" />
-                <p className="text-sm font-medium uppercase">Register</p>
+                <p className="text-sm text-black font-medium uppercase">
+                  Register
+                </p>
               </NavLink>
             </>
           )}

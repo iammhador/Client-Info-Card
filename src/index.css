@@ -14,12 +14,20 @@ code {
     monospace;
 }
 
-/* Change the white to any color */
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 50px white inset; /* Change the color to your own background color */
-  -webkit-text-fill-color: #999;
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
-input:-webkit-autofill:focus {
-  -webkit-box-shadow: /*your box-shadow*/ 0 0 0 50px white inset;
-  -webkit-text-fill-color: #999;
+input:-webkit-autofill {
+  -webkit-text-fill-color: #999 !important;
+} */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
 }

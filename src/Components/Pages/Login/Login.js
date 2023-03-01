@@ -42,7 +42,7 @@ const Login = () => {
       data-aos="zoom-in-up"
       className="grid grid-cols-1 md:grid-cols-2 justify-center h-screen"
     >
-      <div className="left bg-primary flex justify-center flex-col items-center h-screen ">
+      <div className="left bg-black flex justify-center flex-col items-center h-screen ">
         <img className="" src={img} alt="" />
       </div>
       <div className="right flex justify-center flex-col items-center h-screen px-20 lg:px-0">

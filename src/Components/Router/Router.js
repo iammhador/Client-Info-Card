@@ -38,7 +38,7 @@ const Router = createHashRouter([
         element: <EditDetails />,
         loader: async ({ params }) => {
           return fetch(
-            `http://localhost:5000/updateInformation?username=${params.username}`
+            `https://infocard-zeta.vercel.app/updateInformation?username=${params.username}`
           );
         },
       },
@@ -90,7 +90,7 @@ const Router = createHashRouter([
     errorElement: <Error />,
     loader: async ({ params }) => {
       return fetch(
-        `http://localhost:5000/updateInformation?username=${params.username}`
+        `https://infocard-zeta.vercel.app/updateInformation?username=${params.username}`
       );
     },
   },

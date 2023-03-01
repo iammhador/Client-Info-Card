@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AboutUs from "./AboutUs";
 import MessengerCustomerChat from "react-messenger-customer-chat";
 import Banner from "./Banner";
@@ -6,9 +6,16 @@ import CreateYourCard from "./CreateYourCard";
 import Footer from "./Footer";
 import Information from "./Information";
 import ScrollToTop from "./ScrollToTop";
+import Loading from "../Loading/Loading";
+import { useContext } from "react";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 
 // import ScrollToTop from "react-scroll-to-top";
 const Home = () => {
+  const { loading } = useContext(AuthContext);
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="mb-0">
       <Banner />
@@ -31,11 +38,11 @@ const Home = () => {
       >
         <span>UP</span>
       </ScrollToTop> */}
-      <MessengerCustomerChat
+      {/* <MessengerCustomerChat
         pageId="103839155949753"
         appId="565056462228528"
         htmlRef="<REF_STRING>"
-      />
+      /> */}
     </div>
   );
 };

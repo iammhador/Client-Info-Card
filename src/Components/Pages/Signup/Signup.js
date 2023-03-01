@@ -23,7 +23,7 @@ const Signup = () => {
     const newUser = { email, username };
 
     setLoading(true);
-    fetch("http://localhost:5000/registration", {
+    fetch("https://infocard-zeta.vercel.app/registration", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -57,7 +57,7 @@ const Signup = () => {
   };
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 justify-center w-screen h-screen">
-      <div className="left bg-primary flex justify-center flex-col items-center h-screen">
+      <div className="left bg-black flex justify-center flex-col items-center h-screen">
         <img className="" src={img} alt="" />
       </div>
       <div className="right flex justify-center flex-col items-center h-screen px-20 lg:px-0">
@@ -67,7 +67,6 @@ const Signup = () => {
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
             <CgProfile className="text-xl text-info font-extrabold" />
-            {/* <span className="text-info ml-2">profile/</span> */}
             <input
               className="pl-2 outline-none border-none"
               type="text"

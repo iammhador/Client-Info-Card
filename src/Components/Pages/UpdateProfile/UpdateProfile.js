@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
 import { ThreeDots } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 //# Personal Information:
 import { CgProfile } from "react-icons/cg";
@@ -21,7 +22,14 @@ import { BsYoutube } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
 import { AiOutlineGithub } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+import { GrReddit } from "react-icons/gr";
+import { BsSnapchat } from "react-icons/bs";
+import { BsSpotify } from "react-icons/bs";
+import { BsPinterest } from "react-icons/bs";
+import { BsTelegram } from "react-icons/bs";
+import { AiFillMediumCircle } from "react-icons/ai";
+import { SiUpwork } from "react-icons/si";
+import { SiFiverr } from "react-icons/si";
 
 const UpdateProfile = () => {
   const [loading, setLoading] = useState(false);
@@ -48,13 +56,21 @@ const UpdateProfile = () => {
     const whatsApp = form.whatsApp.value;
     const tikTok = form.tikTok.value;
     const gitHub = form.gitHub.value;
+    const reddit = form.reddit.value;
+    const snapchat = form.snapchat.value;
+    const spotify = form.spotify.value;
+    const pinterest = form.pinterest.value;
+    const telegram = form.telegram.value;
+    const medium = form.medium.value;
+    const upwork = form.upwork.value;
+    const fiverr = form.fiverr.value;
 
     //# Images Pass To IMGBB Server:
 
     const image = e.target.image.files[0];
     const formData = new FormData();
     formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
+    const url = `https://api.imgbb.com/1/upload?key=c848751fc15435ca53ea912d84231c13`;
     fetch(url, {
       method: "POST",
       body: formData,
@@ -64,6 +80,7 @@ const UpdateProfile = () => {
         //# If Successfully Upload Profile Picture, Then Only Other's Data Will Go To Server:
         if (data.success) {
           const updateInformation = {
+            //# Personal Details:
             fullName: fullName,
             image: data.data.url,
             email: user.email,
@@ -72,6 +89,8 @@ const UpdateProfile = () => {
             designation: designation,
             contactNumber: contactNumber,
             websiteAddress: websiteAddress,
+
+            //# Social Media:
             facebook: facebook,
             instagram: instagram,
             linkedIn: linkedIn,
@@ -80,12 +99,20 @@ const UpdateProfile = () => {
             whatsApp: whatsApp,
             tikTok: tikTok,
             gitHub: gitHub,
+            reddit: reddit,
+            snapchat: snapchat,
+            spotify: spotify,
+            pinterest: pinterest,
+            telegram: telegram,
+            medium: medium,
+            upwork: upwork,
+            fiverr: fiverr,
 
             //# used for filtering
             username: user.displayName,
           };
           setLoading(true);
-          fetch("http://localhost:5000/updateInformation", {
+          fetch("https://infocard-zeta.vercel.app/updateInformation", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -100,6 +127,7 @@ const UpdateProfile = () => {
         }
       });
   };
+
   return (
     <div className="mb-28 md:mb-0">
       <img src={TopImage} alt="Top Banner" />
@@ -190,7 +218,8 @@ const UpdateProfile = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="text-center p-3 rounded-2xl border-2">
                   <label for="inputTag" className="cursor-pointer text-info">
-                    Profile Photo <br />
+                    Profile Photo{" "}
+                    <span className="text-red-600">( Required )</span> <br />
                     <BsCameraFill className="text-4xl text-info font-extrabold mx-auto mt-3" />
                     <input
                       id="inputTag"
@@ -302,6 +331,102 @@ const UpdateProfile = () => {
                     name="gitHub"
                     id="gitHub"
                     placeholder="GitHub Profile URL"
+                  ></input>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
+                  <GrReddit className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none mx-1"
+                    type="text"
+                    name="reddit"
+                    id="reddit"
+                    placeholder="Reddit Profile URL"
+                  ></input>
+                </div>
+
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                  <BsSnapchat className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none"
+                    type="text"
+                    name="snapchat"
+                    id="snapchat"
+                    placeholder="Snapchat Profile URL"
+                  ></input>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
+                  <BsSpotify className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none mx-1"
+                    type="text"
+                    name="spotify"
+                    id="spotify"
+                    placeholder="Spotify Profile URL"
+                  ></input>
+                </div>
+
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                  <BsPinterest className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none"
+                    type="text"
+                    name="pinterest"
+                    id="pinterest"
+                    placeholder="Pinterest Profile URL"
+                  ></input>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
+                  <BsTelegram className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none mx-1"
+                    type="text"
+                    name="telegram"
+                    id="telegram"
+                    placeholder="Telegram Username"
+                  ></input>
+                </div>
+
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                  <AiFillMediumCircle className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none"
+                    type="text"
+                    name="medium"
+                    id="medium"
+                    placeholder="Medium Profile URL"
+                  ></input>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
+                  <SiUpwork className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none mx-1"
+                    type="text"
+                    name="upwork"
+                    id="upwork"
+                    placeholder="Upwork Profile URL"
+                  ></input>
+                </div>
+
+                <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
+                  <SiFiverr className="text-xl text-info font-extrabold" />
+                  <input
+                    className="pl-2 outline-none border-none"
+                    type="text"
+                    name="fiverr"
+                    id="fiverr"
+                    placeholder="Fiverr Profile URL"
                   ></input>
                 </div>
               </div>

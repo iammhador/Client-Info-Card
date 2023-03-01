@@ -5,6 +5,7 @@ import VCard from "vcard-creator";
 import download from "downloadjs";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
 import ProfileImage from "../../Assets/profile.png";
+import { useLoaderData } from "react-router";
 
 //# Personal Information Icons:
 import { BsGlobe } from "react-icons/bs";
@@ -21,7 +22,14 @@ import { SiTwitter } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
-import { useLoaderData } from "react-router";
+import { GrReddit } from "react-icons/gr";
+import { BsSpotify } from "react-icons/bs";
+import { BsSnapchat } from "react-icons/bs";
+import { BsPinterest } from "react-icons/bs";
+import { BsTelegram } from "react-icons/bs";
+import { AiFillMediumCircle } from "react-icons/ai";
+import { SiUpwork } from "react-icons/si";
+import { SiFiverr } from "react-icons/si";
 // import AuthProvider from "../../../AuthProvider/AuthProvider";
 
 const UserDetails = () => {
@@ -43,6 +51,14 @@ const UserDetails = () => {
     whatsApp,
     tikTok,
     gitHub,
+    reddit,
+    snapchat,
+    spotify,
+    pinterest,
+    telegram,
+    medium,
+    upwork,
+    fiverr,
   } = useLoaderData()[0];
 
   //# Social Slider:
@@ -316,13 +332,111 @@ const UserDetails = () => {
                   </a>
                 </div>
               ) : null}
+
+              {reddit ? (
+                <div>
+                  <a
+                    href={reddit}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <GrReddit className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {snapchat ? (
+                <div>
+                  <a
+                    href={snapchat}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <BsSnapchat className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {spotify ? (
+                <div>
+                  <a
+                    href={spotify}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <BsSpotify className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {pinterest ? (
+                <div>
+                  <a
+                    href={pinterest}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <BsPinterest className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {telegram ? (
+                <div>
+                  <a
+                    href={`https://t.me/${telegram}`}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <BsTelegram className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {medium ? (
+                <div>
+                  <a
+                    href={medium}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <AiFillMediumCircle className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {upwork ? (
+                <div>
+                  <a
+                    href={upwork}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <SiUpwork className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
+
+              {fiverr ? (
+                <div>
+                  <a
+                    href={fiverr}
+                    target="a_blank"
+                    className="flex my-auto mb-4"
+                  >
+                    <SiFiverr className="text-5xl rounded-full bg-black text-white p-3" />
+                  </a>
+                </div>
+              ) : null}
             </Carousel>
           </div>
         </div>
         <footer className="my-4">
-          <p className="text-center text-sm text-secondary font-medium">
+          <p className="text-center text-sm text-secondary font-medium capitalize">
             All right reserved by{" "}
-            <a href="https://infocard.online/">infocard</a>
+            <a className="text-primary" href="https://infocard.online/">
+              infocard
+            </a>
           </p>
         </footer>
       </div>
