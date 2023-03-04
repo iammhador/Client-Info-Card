@@ -7,6 +7,7 @@ import UserDetails from "../Pages/Profile/UserDetails";
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import EditDetails from "../Pages/Profile/EditDetails";
 import Notify from "../Pages/Notification.js/Notify";
+import PasswordReset from "../Pages/Password-reset/PasswordReset";
 const { createHashRouter } = require("react-router-dom");
 
 const Router = createHashRouter([
@@ -26,6 +27,10 @@ const Router = createHashRouter([
       {
         path: "/register",
         element: <Signup />,
+      },
+      {
+        path: "/password-reset",
+        element: <PasswordReset></PasswordReset>,
       },
       {
         path: "/edit-profile/:username",
