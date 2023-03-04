@@ -156,10 +156,14 @@ const EditDetails = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <CgProfile className="text-xl text-info font-extrabold" />
+                    <CgProfile
+                      className={`text-xl ${
+                        fullName ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
 
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="fullName"
                       id="fullName"
@@ -169,9 +173,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <MdLocationPin className="text-xl text-info font-extrabold" />
+                    <MdLocationPin
+                      className={`text-xl ${
+                        location ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="location"
                       id="location"
@@ -183,9 +191,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <MdOutlineTagFaces className="text-xl text-info font-extrabold" />
+                    <MdOutlineTagFaces
+                      className={`text-xl ${
+                        aboutYourself ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="aboutYourself"
                       id="aboutYourself"
@@ -195,9 +207,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <MdWorkOutline className="text-xl text-info font-extrabold" />
+                    <MdWorkOutline
+                      className={`text-xl ${
+                        designation ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="designation"
                       id="designation"
@@ -208,9 +224,13 @@ const EditDetails = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <IoMdCall className="text-xl text-info font-extrabold" />
+                    <IoMdCall
+                      className={`text-xl ${
+                        contactNumber ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="contactNumber"
                       id="contactNumber"
@@ -220,9 +240,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <BsGlobe className="text-xl text-info font-extrabold" />
+                    <BsGlobe
+                      className={`text-xl ${
+                        websiteAddress ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="websiteAddress"
                       id="websiteAddress"
@@ -241,9 +265,13 @@ const EditDetails = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <RiFacebookFill className="text-xl text-info font-extrabold" />
+                    <RiFacebookFill
+                      className={`text-xl ${
+                        facebook ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="facebook"
                       id="facebook"
@@ -253,9 +281,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <AiOutlineInstagram className="text-xl text-info font-extrabold" />
+                    <AiOutlineInstagram
+                      className={`text-xl ${
+                        instagram ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="instagram"
                       id="instagram"
@@ -267,9 +299,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <FaLinkedinIn className="text-xl text-info font-extrabold" />
+                    <FaLinkedinIn
+                      className={`text-xl ${
+                        linkedIn ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="linkedIn"
                       id="linkedIn"
@@ -279,9 +315,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <BsTwitter className="text-xl text-info font-extrabold" />
+                    <BsTwitter
+                      className={`text-xl ${
+                        twitter ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="twitter"
                       id="twitter"
@@ -292,9 +332,13 @@ const EditDetails = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <BsYoutube className="text-xl text-info font-extrabold" />
+                    <BsYoutube
+                      className={`text-xl ${
+                        youTube ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="youTube"
                       id="youTube"
@@ -304,9 +348,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <BsWhatsapp className="text-xl text-info font-extrabold" />
+                    <BsWhatsapp
+                      className={`text-xl ${
+                        whatsApp ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="whatsApp"
                       id="whatsApp"
@@ -318,9 +366,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <FaTiktok className="text-xl text-info font-extrabold" />
+                    <FaTiktok
+                      className={`text-xl ${
+                        tikTok ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="tikTok"
                       id="tikTok"
@@ -330,9 +382,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <AiOutlineGithub className="text-xl text-info font-extrabold" />
+                    <AiOutlineGithub
+                      className={`text-xl ${
+                        gitHub ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="gitHub"
                       id="gitHub"
@@ -344,9 +400,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <GrReddit className="text-xl text-info font-extrabold" />
+                    <GrReddit
+                      className={`text-xl ${
+                        reddit ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none  border-none mx-1"
                       type="text"
                       name="reddit"
                       id="reddit"
@@ -356,9 +416,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <BsSnapchat className="text-xl text-info font-extrabold" />
+                    <BsSnapchat
+                      className={`text-xl ${
+                        snapchat ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="snapchat"
                       id="snapchat"
@@ -370,9 +434,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <BsSpotify className="text-xl text-info font-extrabold" />
+                    <BsSpotify
+                      className={`text-xl ${
+                        spotify ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none border-none mx-1"
                       type="text"
                       name="spotify"
                       id="spotify"
@@ -382,9 +450,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <BsPinterest className="text-xl text-info font-extrabold" />
+                    <BsPinterest
+                      className={`text-xl ${
+                        pinterest ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="pinterest"
                       id="pinterest"
@@ -396,9 +468,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <BsTelegram className="text-xl text-info font-extrabold" />
+                    <BsTelegram
+                      className={`text-xl ${
+                        updatedTelegram ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none border-none mx-1"
                       type="text"
                       name="telegram"
                       id="telegram"
@@ -408,9 +484,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <AiFillMediumCircle className="text-xl text-info font-extrabold" />
+                    <AiFillMediumCircle
+                      className={`text-xl ${
+                        updatedMedium ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="medium"
                       id="medium"
@@ -422,9 +502,13 @@ const EditDetails = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                    <SiUpwork className="text-xl text-info font-extrabold" />
+                    <SiUpwork
+                      className={`text-xl ${
+                        upwork ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none mx-1"
+                      className="pl-2 text-primary outline-none border-none mx-1"
                       type="text"
                       name="upwork"
                       id="upwork"
@@ -434,9 +518,13 @@ const EditDetails = () => {
                   </div>
 
                   <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                    <SiFiverr className="text-xl text-info font-extrabold" />
+                    <SiFiverr
+                      className={`text-xl ${
+                        fiverr ? "text-primary" : "text-info"
+                      } font-extrabold`}
+                    />
                     <input
-                      className="pl-2 outline-none border-none"
+                      className="pl-2 text-primary outline-none border-none"
                       type="text"
                       name="fiverr"
                       id="fiverr"
