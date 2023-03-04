@@ -44,9 +44,7 @@ input:-webkit-autofill {
   box-shadow: 5px 5px 8px #cccccc;
   outline: none;
 }
-::-webkit-file-upload-button:hover {
-  background: ;
-}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
