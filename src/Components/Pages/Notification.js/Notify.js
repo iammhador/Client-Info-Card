@@ -14,7 +14,7 @@ const Notify = () => {
       <p className="text-gray-400 px-5">
         Your account created successfully. To visit your profile, Please{" "}
         <Link
-          to={`/profile/${user?.displayName}`}
+          to={`/${user?.displayName}`}
           className="text-primary font-medium text-lg underline"
         >
           click

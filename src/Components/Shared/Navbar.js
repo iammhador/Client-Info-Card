@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ImHome3 } from "react-icons/im";
 import { CgProfile } from "react-icons/cg";
 import { GiArchiveRegister } from "react-icons/gi";
@@ -8,17 +8,15 @@ import { TbEdit } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import "./Navbar.module.css";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-import Loading from "../Pages/Loading/Loading";
+
 const Navbar = () => {
-  const { user, logOut, loading } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const singOut = () => {
     logOut();
   };
-  if (loading) {
-    return <Loading></Loading>;
-  }
+
   return (
-    <nav className="w-full md:w-full lg:w-1/3 grid grid-cols-1 fixed  border-primary border-t-4 bottom-0 md:bottom-0 lg:bottom-9 lg:border-0 lg:left-1/3 bg-gray-50 lg:rounded-xl">
+    <nav className="w-full md:w-full lg:w-1/3 grid grid-cols-1 fixed  border-primary border-t-4 bottom-0 md:bottom-0 lg:bottom-9 lg:border-0 lg:left-1/3 bg-gray-50 lg:rounded-xl z-10">
       <div className="w-full max-w-md mx-auto">
         <div className="flex justify-evenly py-2 px-2">
           <NavLink
@@ -54,7 +52,7 @@ const Navbar = () => {
                     ? "text-2xl text-primary  p-3 rounded-xl "
                     : "text-2xl text-black p-3 rounded-xl hover:text-primary"
                 }
-                to={`/profile/${user.displayName}`}
+                to={`/${user.displayName}`}
               >
                 <GrGlobe className="mx-auto mb-1" />
                 <p className="text-sm text-black font-medium uppercase">

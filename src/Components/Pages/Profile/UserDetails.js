@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import VCard from "vcard-creator";
 import download from "downloadjs";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
-import ProfileImage from "../../Assets/profile.png";
 import { useLoaderData } from "react-router";
 
 //# Personal Information Icons:
@@ -30,7 +29,10 @@ import { BsTelegram } from "react-icons/bs";
 import { AiFillMediumCircle } from "react-icons/ai";
 import { SiUpwork } from "react-icons/si";
 import { SiFiverr } from "react-icons/si";
-// import AuthProvider from "../../../AuthProvider/AuthProvider";
+
+//# AOS:
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const UserDetails = () => {
   //# User Information:
@@ -61,12 +63,16 @@ const UserDetails = () => {
     fiverr,
   } = useLoaderData()[0];
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   //# Social Slider:
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
-      items: 5,
+      items: 8,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -74,7 +80,7 @@ const UserDetails = () => {
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 6,
+      items: 7,
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -99,50 +105,63 @@ const UserDetails = () => {
 
   return (
     <div>
-      <div>
-        <div className="top-image">
+      <div className="mb-28 lg:mb-44">
+        <div
+          data-aos="fade-down"
+          data-aos-duration="2000"
+          className="top-image"
+        >
           <img src={TopImage} alt="Top" />
         </div>
 
         {image ? (
           <div className="avatar">
             <div className="w-24 rounded-full ring ring-white ring-offset-secondary-100 ring-offset-2 absolute -top-16 left-8 md:left-16 lg:left-20">
-              <img src={image ? image : ProfileImage} alt="Avater" />
+              <img src={image} alt="Avater" />
             </div>
           </div>
         ) : null}
 
         <div className="mt-14 w-5/6 mx-auto font-rubik">
           {fullName ? (
-            <h3 className="text-xl md:text-4xl text-neutral font-semibold uppercase ">
+            <h3
+              data-aos="zoom-out-down"
+              data-aos-duration="2000"
+              className="text-xl md:text-4xl text-neutral font-semibold uppercase "
+            >
               {fullName}
             </h3>
           ) : null}
 
           {designation ? (
-            <h5 className="text-sm md:text-2xl text-secondary font-medium uppercase">
+            <h5
+              data-aos="zoom-out-down"
+              data-aos-duration="2000"
+              className="text-sm md:text-2xl text-secondary font-medium uppercase"
+            >
               {designation}
             </h5>
           ) : null}
           <div className="my-8">
-            <div className="grid grid-cols-1">
+            <div
+              data-aos="flip-down"
+              data-aos-duration="2000"
+              className="grid grid-cols-1"
+            >
               <button
                 onClick={visitingCard}
                 className="bg-primary text-sm md:text-lg font-medium text-accent p-3 mr-2 rounded-xl uppercase hover:bg-neutral shadow-2xl"
               >
                 Save Contact
               </button>
-
-              {/* <button className="bg-primary text-base font-medium text-accent p-3 rounded-xl uppercase">
-                Connect
-              </button> */}
             </div>
           </div>
           <div className="my-8">
             <div className="my-4">
               {email ? (
                 <a
-                  // href="mailto:iammhador@gmail.com"
+                  data-aos="zoom-in"
+                  data-aos-duration="2000"
                   href={`mailto:${email}`}
                   target="a_blank"
                   className="flex my-auto mb-4"
@@ -161,6 +180,8 @@ const UserDetails = () => {
 
               {contactNumber ? (
                 <a
+                  data-aos="zoom-in"
+                  data-aos-duration="2000"
                   href={`tel:+88${contactNumber}`}
                   target="a_blank"
                   className="flex my-auto mb-4"
@@ -179,6 +200,8 @@ const UserDetails = () => {
 
               {websiteAddress ? (
                 <a
+                  data-aos="zoom-in"
+                  data-aos-duration="2000"
                   href={websiteAddress}
                   target="a_blank"
                   className="flex my-auto mb-4"
@@ -197,6 +220,8 @@ const UserDetails = () => {
 
               {location ? (
                 <a
+                  data-aos="zoom-in"
+                  data-aos-duration="2000"
                   href={`https://www.google.com/maps/search/?api=1&query=${location}`}
                   target="a_blank"
                   className="flex my-auto mb-4"
@@ -216,11 +241,7 @@ const UserDetails = () => {
           </div>
 
           {aboutYourself ? (
-            <div className="my-8">
-              {/* <h3 className="text-xl font-bold text-secondary tracking-wide">
-                About
-              </h3> */}
-
+            <div data-aos="zoom-in" data-aos-duration="2000" className="my-8">
               <div>
                 <p className="text-secondary font-medium mt-2 text-justify">
                   {aboutYourself}
@@ -236,9 +257,10 @@ const UserDetails = () => {
             <Carousel
               responsive={responsive}
               removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
+              // className="z-0"
             >
               {facebook ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={facebook}
                     target="a_blank"
@@ -250,7 +272,7 @@ const UserDetails = () => {
               ) : null}
 
               {instagram ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={instagram}
                     target="a_blank"
@@ -262,7 +284,7 @@ const UserDetails = () => {
               ) : null}
 
               {whatsApp ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={`https://wa.me/+88${contactNumber}`}
                     target="a_blank"
@@ -274,7 +296,7 @@ const UserDetails = () => {
               ) : null}
 
               {linkedIn ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={linkedIn}
                     target="a_blank"
@@ -286,7 +308,7 @@ const UserDetails = () => {
               ) : null}
 
               {twitter ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={twitter}
                     target="a_blank"
@@ -298,7 +320,7 @@ const UserDetails = () => {
               ) : null}
 
               {tikTok ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={tikTok}
                     target="a_blank"
@@ -310,7 +332,7 @@ const UserDetails = () => {
               ) : null}
 
               {youTube ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={youTube}
                     target="a_blank"
@@ -322,7 +344,7 @@ const UserDetails = () => {
               ) : null}
 
               {gitHub ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={gitHub}
                     target="a_blank"
@@ -334,7 +356,7 @@ const UserDetails = () => {
               ) : null}
 
               {reddit ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={reddit}
                     target="a_blank"
@@ -346,7 +368,7 @@ const UserDetails = () => {
               ) : null}
 
               {snapchat ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={snapchat}
                     target="a_blank"
@@ -358,7 +380,7 @@ const UserDetails = () => {
               ) : null}
 
               {spotify ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={spotify}
                     target="a_blank"
@@ -370,7 +392,7 @@ const UserDetails = () => {
               ) : null}
 
               {pinterest ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={pinterest}
                     target="a_blank"
@@ -382,7 +404,7 @@ const UserDetails = () => {
               ) : null}
 
               {telegram ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={`https://t.me/${telegram}`}
                     target="a_blank"
@@ -394,7 +416,7 @@ const UserDetails = () => {
               ) : null}
 
               {medium ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={medium}
                     target="a_blank"
@@ -406,7 +428,7 @@ const UserDetails = () => {
               ) : null}
 
               {upwork ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={upwork}
                     target="a_blank"
@@ -418,7 +440,7 @@ const UserDetails = () => {
               ) : null}
 
               {fiverr ? (
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
                     href={fiverr}
                     target="a_blank"
@@ -431,7 +453,7 @@ const UserDetails = () => {
             </Carousel>
           </div>
         </div>
-        <footer className="my-4">
+        <footer data-aos="fade-down" data-aos-duration="2000" className="my-4">
           <p className="text-center text-sm text-secondary font-medium capitalize">
             All right reserved by{" "}
             <a className="text-primary" href="https://infocard.online/">

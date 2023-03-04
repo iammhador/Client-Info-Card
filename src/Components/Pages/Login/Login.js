@@ -6,11 +6,13 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import { ThreeDots } from "react-loader-spinner";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
+import Loading from "../Loading/Loading";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const { login } = useContext(AuthContext);
+  const { login, loading: loader } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +20,10 @@ const Login = () => {
       duration: 2000,
     });
   }, []);
+
+  if (loader) {
+    return <Loading></Loading>;
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -27,9 +33,8 @@ const Login = () => {
     setLoading(true);
     login(email, password)
       .then(() => {
-        toast.success("Logged Successfully");
-        // navigate(`profile/${user?.displayName}`);
         navigate("/");
+        toast.success("Logged Successfully");
         setLoading(false);
       })
       .catch((err) => {
@@ -38,17 +43,15 @@ const Login = () => {
   };
 
   return (
-    <div
-      data-aos="zoom-in-up"
-      className="grid grid-cols-1 md:grid-cols-2 justify-center h-screen"
-    >
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-center h-screen">
       <div className="left bg-black flex justify-center flex-col items-center h-screen ">
         <img className="" src={img} alt="" />
       </div>
       <div className="right flex justify-center flex-col items-center h-screen px-20 lg:px-0">
         <form onSubmit={handleLogin}>
           <h1
-            data-aos="zoom-in-up"
+            data-aos="zoom-in"
+            data-aos-duration="2000"
             className="font-bold text-primary text-2xl my-7 text-center"
           >
             Login to your account!

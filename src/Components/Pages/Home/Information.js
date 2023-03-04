@@ -1,11 +1,17 @@
 import React from "react";
+import { useEffect } from "react";
 import Info1 from "../../Assets/Website Related Items/info1.png";
 import Info2 from "../../Assets/Website Related Items/info2.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Information = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="">
       <div className="grid grid-cols-1 md:grid-cols-2  flex-col-reverse bg-black px-8 md:px-12 lg:px-20 pt-20 md:pt-20 lg:py-20">
-        <div className="my-auto">
+        <div data-aos="fade-right" data-aos-duration="2000" className="my-auto">
           <h2 className="text-2xl md:text-4xl lg:text-7xl font-bold text-left md:text-left">
             Easiest way <br /> to connect <br /> with people
           </h2>
@@ -16,13 +22,28 @@ const Information = () => {
             </p>
           </div>
         </div>
-        <img className="row-start-1 md:row-auto" src={Info1} alt="" />
+        <img
+          data-aos="fade-left"
+          data-aos-duration="2000"
+          className="row-start-1 md:row-auto"
+          src={Info1}
+          alt=""
+        />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 flex-col-reverse bg-black px-8 md:px-12 lg:px-20 py-10 md:14 lg:py-20">
-        <img src={Info2} alt="" />
+        <img
+          data-aos="fade-right"
+          data-aos-duration="2000"
+          src={Info2}
+          alt=""
+        />
 
-        <div className="my-auto text-right">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="2000"
+          className="my-auto text-right"
+        >
           <h2 className="text-2xl md:text-4xl lg:text-7xl font-bold text-right md:text-right lg:mt-5 md:mt-0">
             Be Unique
           </h2>

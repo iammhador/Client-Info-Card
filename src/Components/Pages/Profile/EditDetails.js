@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import TopImage from "../../Assets/Website Related Items/top.jpg";
 import { ThreeDots } from "react-loader-spinner";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -11,7 +11,6 @@ import { IoMdCall } from "react-icons/io";
 import { MdOutlineTagFaces } from "react-icons/md";
 import { MdWorkOutline } from "react-icons/md";
 import { BsGlobe } from "react-icons/bs";
-import { BsCameraFill } from "react-icons/bs";
 
 //# Social Media:
 import { RiFacebookFill } from "react-icons/ri";
@@ -30,12 +29,19 @@ import { BsTelegram } from "react-icons/bs";
 import { AiFillMediumCircle } from "react-icons/ai";
 import { SiUpwork } from "react-icons/si";
 import { SiFiverr } from "react-icons/si";
+import { toast } from "react-hot-toast";
 
+//# AOS :
+import AOS from "aos";
+import "aos/dist/aos.css";
 const EditDetails = () => {
-  const [loading, setLoading] = useState(false);
   const { user } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
   //# Information Collect From UseLoaderData:
   const {
     fullName,
@@ -91,61 +97,47 @@ const EditDetails = () => {
     const upwork = form.upwork.value;
     const fiverr = form.fiverr.value;
 
-    //# Images Pass To IMGBB Server:
-    const image = e.target.image.files[0];
-    const formData = new FormData();
-    formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMGBB_API_KEY}`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        //# If Successfully Upload Profile Picture, Then Only Other's Data Will Go To Server:
-        if (data.success) {
-          const updateInformation = {
-            fullName: fullName,
-            image: data.data.url,
-            location: location,
-            aboutYourself: aboutYourself,
-            designation: designation,
-            contactNumber: contactNumber,
-            websiteAddress: websiteAddress,
-            facebook: facebook,
-            instagram: instagram,
-            linkedIn: linkedIn,
-            twitter: twitter,
-            youTube: youTube,
-            whatsApp: whatsApp,
-            tikTok: tikTok,
-            gitHub: gitHub,
-            reddit: reddit,
-            snapchat: snapchat,
-            spotify: spotify,
-            pinterest: pinterest,
-            telegram: telegram,
-            medium: medium,
-            upwork: upwork,
-            fiverr: fiverr,
-          };
+    //# If Successfully Upload Profile Picture, Then Only Other's Data Will Go To Server:
+    const updateInformation = {
+      fullName: fullName,
+      location: location,
+      aboutYourself: aboutYourself,
+      designation: designation,
+      contactNumber: contactNumber,
+      websiteAddress: websiteAddress,
+      facebook: facebook,
+      instagram: instagram,
+      linkedIn: linkedIn,
+      twitter: twitter,
+      youTube: youTube,
+      whatsApp: whatsApp,
+      tikTok: tikTok,
+      gitHub: gitHub,
+      reddit: reddit,
+      snapchat: snapchat,
+      spotify: spotify,
+      pinterest: pinterest,
+      telegram: telegram,
+      medium: medium,
+      upwork: upwork,
+      fiverr: fiverr,
+    };
 
-          setLoading(true);
-          fetch(
-            `https://infocard-zeta.vercel.app/updateInformation?username=${user?.displayName}`,
-            {
-              method: "PUT",
-              headers: { "content-type": "application/json" },
-              body: JSON.stringify(updateInformation),
-            }
-          )
-            .then((res) => res.json())
-            .then((data) => {
-              setLoading(false);
-              navigate("/updated-successfully");
-              console.log(data);
-            });
-        }
+    setLoading(true);
+
+    fetch(
+      `https://infocard-zeta.vercel.app/updateInformation?username=${user?.displayName}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(updateInformation),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setLoading(false);
+        navigate("/updated-successfully");
+        toast.success("Profile Edited Successfully");
       });
   };
   return (
@@ -157,7 +149,7 @@ const EditDetails = () => {
           <div className="my-10">
             <form onSubmit={handleEditDetails}>
               <div className="mb-5">
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <h2 className="font-bold text-primary text-2xl uppercase mb-4 text-center">
                     Personal Information
                   </h2>
@@ -239,30 +231,10 @@ const EditDetails = () => {
                     ></input>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
-                  <div className="text-center p-3 rounded-2xl border-2">
-                    <label for="inputTag" className="cursor-pointer text-info">
-                      Profile Photo{" "}
-                      <span className="text-red-600">( Required )</span>
-                      <br />
-                      <BsCameraFill className="text-4xl text-info font-extrabold mx-auto mt-3" />
-                      <input
-                        id="inputTag"
-                        type="file"
-                        name="image"
-                        className="hidden"
-                        required
-                      />
-                      <br />
-                      <span className="text-primary"></span>
-                    </label>
-                  </div>
-                </div>
               </div>
 
               <div className="mb-5">
-                <div>
+                <div data-aos="zoom-in" data-aos-duration="2000">
                   <h2 className="font-bold text-primary text-2xl uppercase mt-10 mb-4 text-center">
                     Social Information
                   </h2>

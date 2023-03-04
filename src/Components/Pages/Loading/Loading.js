@@ -5,8 +5,8 @@ const Loading = () => {
   return (
     <Discuss
       visible={true}
-      height="200"
-      width="200"
+      height="200px"
+      width="200px"
       ariaLabel="comment-loading"
       wrapperStyle={{}}
       colors={["#13315C", "#13315C"]}

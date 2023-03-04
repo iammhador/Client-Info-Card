@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -7,12 +7,29 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import { ThreeDots } from "react-loader-spinner";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
+import Loading from "../Loading/Loading";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const { singUpWithEmailPassword, updateUser } = useContext(AuthContext);
+  const {
+    singUpWithEmailPassword,
+    updateUser,
+    loading: loader,
+  } = useContext(AuthContext);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+  }, []);
   const navigate = useNavigate();
+
+  if (loader) {
+    return <Loading></Loading>;
+  }
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -38,8 +55,8 @@ const Signup = () => {
           singUpWithEmailPassword(email, password).then((result) => {
             updateUser({ displayName: username })
               .then(() => {
-                toast.success("Successfully Singed Up");
                 navigate("/update-profile");
+                toast.success("Successfully Singed Up");
                 setLoading(false);
               })
               .catch((err) => {
@@ -62,7 +79,11 @@ const Signup = () => {
       </div>
       <div className="right flex justify-center flex-col items-center h-screen px-20 lg:px-0">
         <form onSubmit={handleSignup}>
-          <h1 className="font-bold text-primary text-2xl my-7 text-center">
+          <h1
+            data-aos="zoom-in"
+            data-aos-duration="2000"
+            className="font-bold text-primary text-2xl my-7 text-center"
+          >
             Register your Account!
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
