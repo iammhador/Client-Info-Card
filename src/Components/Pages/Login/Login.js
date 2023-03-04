@@ -76,6 +76,13 @@ const Login = () => {
               placeholder="Password"
             />
           </div>
+          <Link
+            to="/password-reset"
+            className="text-left text-sm link link-primary"
+          >
+            Forget Password
+          </Link>
+          <br />
           <Link to="/register" className="text-left text-sm text-gray-600">
             Don't have an account?{" "}
             <span className="link link-primary">Register</span>{" "}
