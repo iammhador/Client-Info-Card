@@ -149,7 +149,7 @@ const UpdateProfile = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <CgProfile className="text-xl text-info font-extrabold" />
+                  <CgProfile className="text-xl text-primary font-extrabold" />
 
                   <input
                     className="pl-2 outline-none border-none mx-1"
@@ -162,7 +162,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <MdLocationPin className="text-xl text-info font-extrabold" />
+                  <MdLocationPin className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -175,7 +175,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <MdOutlineTagFaces className="text-xl text-info font-extrabold" />
+                  <MdOutlineTagFaces className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -186,7 +186,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <MdWorkOutline className="text-xl text-info font-extrabold" />
+                  <MdWorkOutline className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -198,7 +198,7 @@ const UpdateProfile = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <IoMdCall className="text-xl text-info font-extrabold" />
+                  <IoMdCall className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -210,7 +210,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <BsGlobe className="text-xl text-info font-extrabold" />
+                  <BsGlobe className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -247,7 +247,7 @@ const UpdateProfile = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <RiFacebookFill className="text-xl text-info font-extrabold" />
+                  <RiFacebookFill className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -258,7 +258,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <AiOutlineInstagram className="text-xl text-info font-extrabold" />
+                  <AiOutlineInstagram className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -271,7 +271,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <FaLinkedinIn className="text-xl text-info font-extrabold" />
+                  <FaLinkedinIn className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -282,7 +282,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <BsTwitter className="text-xl text-info font-extrabold" />
+                  <BsTwitter className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -294,7 +294,7 @@ const UpdateProfile = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <BsYoutube className="text-xl text-info font-extrabold" />
+                  <BsYoutube className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -305,7 +305,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <BsWhatsapp className="text-xl text-info font-extrabold" />
+                  <BsWhatsapp className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -318,7 +318,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <FaTiktok className="text-xl text-info font-extrabold" />
+                  <FaTiktok className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -329,7 +329,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <AiOutlineGithub className="text-xl text-info font-extrabold" />
+                  <AiOutlineGithub className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -342,7 +342,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <GrReddit className="text-xl text-info font-extrabold" />
+                  <GrReddit className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -353,7 +353,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <BsSnapchat className="text-xl text-info font-extrabold" />
+                  <BsSnapchat className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -366,7 +366,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <BsSpotify className="text-xl text-info font-extrabold" />
+                  <BsSpotify className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -377,7 +377,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <BsPinterest className="text-xl text-info font-extrabold" />
+                  <BsPinterest className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -390,7 +390,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <BsTelegram className="text-xl text-info font-extrabold" />
+                  <BsTelegram className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -401,7 +401,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <AiFillMediumCircle className="text-xl text-info font-extrabold" />
+                  <AiFillMediumCircle className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"
@@ -414,7 +414,7 @@ const UpdateProfile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 mb-3">
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1 mb-3 md:mb-0">
-                  <SiUpwork className="text-xl text-info font-extrabold" />
+                  <SiUpwork className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none mx-1"
                     type="text"
@@ -425,7 +425,7 @@ const UpdateProfile = () => {
                 </div>
 
                 <div className="flex items-center border-2 py-2 px-3 rounded-2xl mx-1">
-                  <SiFiverr className="text-xl text-info font-extrabold" />
+                  <SiFiverr className="text-xl text-primary font-extrabold" />
                   <input
                     className="pl-2 outline-none border-none"
                     type="text"

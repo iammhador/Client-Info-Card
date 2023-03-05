@@ -59,17 +59,16 @@ const Signup = () => {
                 toast.success("Successfully Singed Up");
                 setLoading(false);
               })
-              .catch((err) => {
-                console.log(err);
+              .catch((error) => {
+                setLoading(false);
+                toast.error(`${error}`);
               });
           });
         }
       })
       .catch((error) => {
-        console.error(error);
-        setError(
-          "There was an error while registering, Please try again later."
-        );
+        setLoading(false);
+        toast.error(`${error}`);
       });
   };
   return (
@@ -87,7 +86,7 @@ const Signup = () => {
             Register your Account!
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
-            <CgProfile className="text-xl text-info font-extrabold" />
+            <CgProfile className="text-xl text-primary font-extrabold" />
             <input
               className="pl-2 outline-none border-none"
               type="text"
@@ -100,7 +99,7 @@ const Signup = () => {
             <span className="label-text-alt text-error">{error}</span>
           </label>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
-            <MdOutlineAlternateEmail className="text-xl text-info font-extrabold" />
+            <MdOutlineAlternateEmail className="text-xl text-primary font-extrabold" />
 
             <input
               className="pl-2 outline-none border-none"
@@ -111,7 +110,7 @@ const Signup = () => {
             ></input>
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-2">
-            <BiLock className="text-xl text-info font-extrabold" />
+            <BiLock className="text-xl text-primary font-extrabold" />
 
             <input
               className="pl-2 outline-none border-none"

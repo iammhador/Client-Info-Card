@@ -8,6 +8,7 @@ import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import EditDetails from "../Pages/Profile/EditDetails";
 import Notify from "../Pages/Notification.js/Notify";
 import PasswordReset from "../Pages/Password-reset/PasswordReset";
+import Confirmation from "../Pages/Password-reset/Confirmation";
 const { createHashRouter } = require("react-router-dom");
 
 const Router = createHashRouter([
@@ -64,7 +65,17 @@ const Router = createHashRouter([
       },
     ],
   },
-
+  {
+    path: "/reset-password-confirmation",
+    element: <Confirmation />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/reset-password-confirmation",
+        element: <Confirmation />,
+      },
+    ],
+  },
   {
     path: "/updated-successfully",
     element: <Notify />,
@@ -74,6 +85,10 @@ const Router = createHashRouter([
         path: "/updated-successfully",
         element: <Notify />,
       },
+      // {
+      //   path: "/reset-password-confirmation",
+      //   element: <Confirmation />,
+      // },
     ],
   },
   // {

@@ -11,7 +11,7 @@ const Information = () => {
   return (
     <div className="">
       <div className="grid grid-cols-1 md:grid-cols-2  flex-col-reverse bg-black px-8 md:px-12 lg:px-20 pt-20 md:pt-20 lg:py-20">
-        <div data-aos="fade-right" data-aos-duration="2000" className="my-auto">
+        <div data-aos="zoom-in" data-aos-duration="2000" className="my-auto">
           <h2 className="text-2xl md:text-4xl lg:text-7xl font-bold text-left md:text-left">
             Easiest way <br /> to connect <br /> with people
           </h2>
@@ -23,7 +23,7 @@ const Information = () => {
           </div>
         </div>
         <img
-          data-aos="fade-left"
+          data-aos="zoom-in"
           data-aos-duration="2000"
           className="row-start-1 md:row-auto"
           src={Info1}
@@ -32,15 +32,12 @@ const Information = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 flex-col-reverse bg-black px-8 md:px-12 lg:px-20 py-10 md:14 lg:py-20">
-        <img
-          data-aos="fade-right"
-          data-aos-duration="2000"
-          src={Info2}
-          alt=""
-        />
+        <div data-aos="zoom-in" data-aos-duration="2000">
+          <img src={Info2} alt="" />
+        </div>
 
         <div
-          data-aos="fade-left"
+          data-aos="zoom-in"
           data-aos-duration="2000"
           className="my-auto text-right"
         >

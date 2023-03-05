@@ -37,8 +37,9 @@ const Login = () => {
         toast.success("Logged Successfully");
         setLoading(false);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        setLoading(false);
+        toast.error(`${error}`);
       });
   };
 
@@ -57,7 +58,7 @@ const Login = () => {
             Login to your account!
           </h1>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ">
-            <MdOutlineAlternateEmail className="text-xl text-info font-extrabold" />
+            <MdOutlineAlternateEmail className="text-xl text-primary font-extrabold" />
             <input
               className="pl-2 outline-none border-none "
               type="email"
@@ -67,7 +68,7 @@ const Login = () => {
             ></input>
           </div>
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-2 ">
-            <BiLock className="text-xl text-info font-extrabold" />
+            <BiLock className="text-xl text-primary font-extrabold" />
             <input
               className="pl-2 outline-none border-none"
               type="password"
