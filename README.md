@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # INFO CARD OFFICIAL
 
 INFO CARD OFFICIAL is a user-friendly web platform that enables users to create a customizable and shareable virtual business card. Users can input their personal information, such as full name, address, email, contact number, and social links, which can be easily shared via a generated URL. It is designed to provide a convenient way for individuals and businesses to showcase their key details in a simple, concise format.
@@ -37,3 +38,6 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 
 For any inquiries or support, please contact us at our [website](https://iammhador.netlify.app/).
+=======
+Server site code link : https://github.com/iammhador/Server-Info-Card
+>>>>>>> 7654f3f6c4c8021e62d7a0233a5fd980076f68b5
