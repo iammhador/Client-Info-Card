@@ -7,18 +7,13 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import { ThreeDots } from "react-loader-spinner";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
-import Loading from "../Loading/Loading";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const {
-    singUpWithEmailPassword,
-    updateUser,
-    loading: loader,
-  } = useContext(AuthContext);
+  const { singUpWithEmailPassword, updateUser } = useContext(AuthContext);
 
   useEffect(() => {
     AOS.init({
@@ -26,10 +21,6 @@ const Signup = () => {
     });
   }, []);
   const navigate = useNavigate();
-
-  if (loader) {
-    return <Loading></Loading>;
-  }
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -60,15 +51,15 @@ const Signup = () => {
                 setLoading(false);
               })
               .catch((error) => {
-                setLoading(false);
                 toast.error(`${error}`);
+                setLoading(false);
               });
           });
         }
       })
       .catch((error) => {
-        setLoading(false);
         toast.error(`${error}`);
+        setLoading(false);
       });
   };
   return (

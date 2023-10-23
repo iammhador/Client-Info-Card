@@ -6,13 +6,12 @@ import { MdOutlineAlternateEmail } from "react-icons/md";
 import { BiLock } from "react-icons/bi";
 import { ThreeDots } from "react-loader-spinner";
 import img from "../../Assets/Website Related Items/bg-mockup.png";
-import Loading from "../Loading/Loading";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
-  const { login, loading: loader } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,10 +19,6 @@ const Login = () => {
       duration: 2000,
     });
   }, []);
-
-  if (loader) {
-    return <Loading></Loading>;
-  }
 
   const handleLogin = (e) => {
     e.preventDefault();
