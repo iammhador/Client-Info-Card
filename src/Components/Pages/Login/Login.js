@@ -55,7 +55,7 @@ const Login = () => {
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-4 ">
             <MdOutlineAlternateEmail className="text-xl text-primary font-extrabold" />
             <input
-              className="pl-2 outline-none border-none "
+              className="pl-2 outline-none border-none text-primary"
               type="email"
               name="email"
               id="email"
@@ -65,7 +65,7 @@ const Login = () => {
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl mb-2 ">
             <BiLock className="text-xl text-primary font-extrabold" />
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none text-primary"
               type="password"
               name="password"
               id="password"

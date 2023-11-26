@@ -127,9 +127,9 @@ const UserDetails = () => {
             <h3
               data-aos="zoom-out-down"
               data-aos-duration="2000"
-              className="text-xl md:text-4xl text-neutral font-semibold uppercase "
+              className="text-xl md:text-4xl text-primary font-semibold uppercase"
             >
-              {fullName}
+              {fullName.split(" ").slice(0, 3).join(" ")}
             </h3>
           ) : null}
 
@@ -139,7 +139,7 @@ const UserDetails = () => {
               data-aos-duration="2000"
               className="text-sm md:text-2xl text-secondary font-medium uppercase"
             >
-              {designation}
+              {designation.split(" ").slice(0, 3).join(" ")}
             </h5>
           ) : null}
           <div className="my-8">
@@ -169,7 +169,11 @@ const UserDetails = () => {
                   <MdEmail className="text-5xl md:text-7xl md:p-5 rounded-full bg-black text-white p-3" />
                   <div className="ml-3">
                     <h4 className="text-base md:text-2xl text-neutral font-semibold">
-                      {email}
+                      {email.length > 20 ? (
+                        <p>{email.slice(0, 20)}...</p>
+                      ) : (
+                        email
+                      )}
                     </h4>
                     <p className="text-secondary text-xs md:text-lg font-medium">
                       Email
@@ -209,7 +213,11 @@ const UserDetails = () => {
                   <BsGlobe className="text-5xl md:text-7xl md:p-5 rounded-full bg-black text-white p-3" />
                   <div className="ml-3">
                     <h4 className="text-base md:text-2xl text-neutral font-semibold">
-                      {websiteAddress}
+                      {websiteAddress.length > 20 ? (
+                        <p>{websiteAddress.slice(0, 20)}...</p>
+                      ) : (
+                        websiteAddress
+                      )}
                     </h4>
                     <p className="text-secondary text-xs md:text-lg font-medium">
                       Website
@@ -286,7 +294,7 @@ const UserDetails = () => {
               {whatsApp ? (
                 <div data-aos="zoom-in" data-aos-duration="2000">
                   <a
-                    href={`https://wa.me/+88${contactNumber}`}
+                    href={`https://wa.me/+88${whatsApp}`}
                     target="a_blank"
                     className="flex my-auto mb-4"
                   >

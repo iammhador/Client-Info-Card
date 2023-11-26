@@ -79,7 +79,7 @@ const Signup = () => {
           <div className="flex items-center border-2 py-2 px-3 rounded-2xl">
             <CgProfile className="text-xl text-primary font-extrabold" />
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none text-primary"
               type="text"
               name="username"
               id="username"
@@ -93,7 +93,7 @@ const Signup = () => {
             <MdOutlineAlternateEmail className="text-xl text-primary font-extrabold" />
 
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none text-primary"
               type="email"
               name="email"
               id="email"
@@ -104,7 +104,7 @@ const Signup = () => {
             <BiLock className="text-xl text-primary font-extrabold" />
 
             <input
-              className="pl-2 outline-none border-none"
+              className="pl-2 outline-none border-none text-primary"
               type="password"
               name="password"
               id="password"
